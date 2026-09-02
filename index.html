@@ -3,75 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Ram Home Tuitions - Find Best Tutors</title>
-    <!-- Tailwind CSS CDN for modern and fast styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Shree Ram Tuitions - Find Expert Home Tutors</title>
+    <meta name="google-site-verification" content="5gyA49hp12_UtKA8jCSg4DHiITPVT_NDJTV-qhgz8oc" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            color: #334155;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        h1 {
+            color: #1e293b;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            background: #4f46e5;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #4338ca;
+        }
+        .admin-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .admin-link a {
+            color: #0284c7;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans">
+<body>
 
-    <!-- Navbar -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-bold text-indigo-600">📚 Shree Ram Tuitions</h1>
-            <div class="space-x-4">
-                <a href="#find-tutor" class="text-slate-600 hover:text-indigo-600 font-medium">Find Tutor</a>
-                <a href="#register" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 font-medium">Register as Tutor</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="bg-indigo-900 text-white py-20 text-center px-4">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-4xl font-extrabold mb-4">Find the Best Home Tutors Near You</h2>
-            <p class="text-indigo-200 text-lg mb-8">Connect with verified and experienced tutors for school subjects, board exams, and competitive coaching.</p>
-            <a href="#register" class="bg-emerald-500 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-emerald-600 shadow-lg">Join as a Tutor Today</a>
-        </div>
-    </header>
-
-    <!-- Tutor Registration Form Section -->
-    <section id="register" class="max-w-xl mx-auto my-16 bg-white p-8 rounded-2xl shadow-md border border-slate-100">
-        <h3 class="text-2xl font-bold text-center text-indigo-900 mb-6">Tutor Registration Form</h3>
+    <div class="container">
+        <h1>Shree Ram Tuitions 📚</h1>
+        <p style="text-align: center; color: #64748b; margin-top: -15px; margin-bottom: 25px;">Register as a Tutor to connect with students</p>
         
-        <form action="/register-tutor" method="POST" class="space-y-4">
-            <div>
-                <label class="block text-sm font-semibold text-slate-600 mb-1">Full Name</label>
-                <input type="text" name="name" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your full name">
+        <form action="/register-tutor" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
             </div>
 
-            <div>
-                <label class="block text-sm font-semibold text-slate-600 mb-1">Email Address</label>
-                <input type="email" name="email" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your email">
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
             </div>
 
-            <div>
-                <label class="block text-sm font-semibold text-slate-600 mb-1">Phone Number</label>
-                <input type="tel" name="phone" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your mobile number">
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter your mobile number">
             </div>
 
-            <div>
-                <label class="block text-sm font-semibold text-slate-600 mb-1">Subjects You Teach</label>
-                <input type="text" name="subjects" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="e.g. Math, Science, English">
+            <div class="form-group">
+                <label for="subjects">Subjects You Can Teach:</label>
+                <input type="text" id="subjects" name="subjects" required placeholder="e.g. Math, Physics, English">
             </div>
 
-            <div>
-                <label class="block text-sm font-semibold text-slate-600 mb-1">Experience (in Years)</label>
-                <input type="number" name="experience" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="e.g. 3">
+            <div class="form-group">
+                <label for="experience">Experience (in Years):</label>
+                <input type="number" id="experience" name="experience" required placeholder="e.g. 3">
             </div>
 
-            <div>
-                <label class="block text-sm font-semibold text-slate-600 mb-1">Area / Location</label>
-                <input type="text" name="location" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="e.g. Dwarka, Delhi">
+            <div class="form-group">
+                <label for="location">Preferred Location / Area:</label>
+                <input type="text" id="location" name="location" required placeholder="Enter your area/locality">
             </div>
 
-            <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-bold hover:bg-indigo-700 transition duration-200">Submit Registration</button>
+            <button type="submit">Register Now</button>
         </form>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-800 text-slate-400 text-center py-6">
-        <p>&copy; 2026 Shree Ram Home Tuitions. All rights reserved.</p>
-    </footer>
+        <div class="admin-link">
+            <a href="/admin">Go to Admin Dashboard</a>
+        </div>
+    </div>
 
 </body>
 </html>
