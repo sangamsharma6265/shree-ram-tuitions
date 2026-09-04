@@ -4,296 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shree Ram Tuitions - Find Expert Home Tutors</title>
-    <meta name="google-site-verification" content="5gyA49hp12_UtKA8jCSg4DHiITPVT_NDJTV-qhgz8oc" />
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #4f46e5;
-            --primary-dark: #4338ca;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border: #cbd5e1;
-        }
-
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: var(--bg-color);
-            margin: 0;
-            padding: 0;
-            color: var(--text-main);
-        }
-
-        /* Navbar Styling */
-        nav {
-            background: #ffffff;
-            padding: 15px 30px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-brand {
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--primary);
-        }
-
-        /* Container & Layout */
-        .container {
-            max-width: 700px;
-            margin: 40px auto;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
-        }
-
-        h1 {
-            color: var(--text-main);
-            text-align: center;
-            margin-bottom: 8px;
-            font-size: 28px;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            font-size: 15px;
-        }
-
-        /* Role Selector Tabs */
-        .role-selector {
-            display: flex;
-            background: #f1f5f9;
-            padding: 5px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-
-        .role-btn {
-            flex: 1;
-            padding: 10px;
-            text-align: center;
-            background: transparent;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .role-btn.active {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        /* Form Controls */
-        .form-section {
-            display: none;
-        }
-
-        .form-section.active {
-            display: block;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            color: #334155;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 14px;
-            transition: border-color 0.2s;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-        }
-
-        button.submit-btn {
-            width: 100%;
-            background: var(--primary);
-            color: white;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-top: 10px;
-            transition: background 0.2s;
-        }
-
-        button.submit-btn:hover {
-            background: var(--primary-dark);
-        }
-
-        /* Student View Card */
-        .student-card {
-            text-align: center;
-            padding: 30px 20px;
-        }
-
-        .student-card p {
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        /* Footer Links */
-        .admin-link {
-            text-align: center;
-            margin-top: 25px;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 20px;
-        }
-
-        .admin-link a {
-            color: #0284c7;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .admin-link a:hover {
-            text-decoration: underline;
-        }
+        body { font-family: 'Poppins', sans-serif; }
     </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-    <!-- Professional Navigation Bar -->
-    <nav>
-        <a href="/" class="nav-brand">Shree Ram Tuitions 📚</a>
-        <div class="nav-links">
-            <a href="/" class="active">Home</a>
-            <a href="/about">About Us</a>
-            <a href="/contact">Contact</a>
-            <a href="/admin">Admin</a>
-        </div>
-    </nav>
-
-    <!-- Main Content Wrapper -->
-    <div class="container">
-        <h1>Welcome to Shree Ram Tuitions</h1>
-        <p class="subtitle">Connecting qualified home tutors with eager learners</p>
-
-        <!-- Interactive Role Switcher -->
-        <div class="role-selector">
-            <button class="role-btn active" onclick="switchRole('tutor')">I am a Tutor</button>
-            <button class="role-btn" onclick="switchRole('parent')">I am a Parent / Student</button>
-        </div>
-
-        <!-- Tutor Registration Section -->
-        <div id="tutor-section" class="form-section active">
-            <form action="/register-tutor" method="POST">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="Enter your mobile number">
-                </div>
-
-                <div class="form-group">
-                    <label for="subjects">Subjects You Can Teach</label>
-                    <input type="text" id="subjects" name="subjects" required placeholder="e.g. Mathematics, Physics, English">
-                </div>
-
-                <div class="form-group">
-                    <label for="experience">Experience (in Years)</label>
-                    <input type="number" id="experience" name="experience" required placeholder="e.g. 3">
-                </div>
-
-                <div class="form-group">
-                    <label for="location">Preferred Location / Area</label>
-                    <input type="text" id="location" name="location" required placeholder="Enter your local area or city">
-                </div>
-
-                <button type="submit" class="submit-btn">Register as Tutor</button>
-            </form>
-        </div>
-
-        <!-- Student / Parent Requirement Section -->
-        <div id="parent-section" class="form-section">
-            <div class="student-card">
-                <h3 style="color: var(--text-main); margin-top: 0;">Looking for a Home Tutor?</h3>
-                <p>We provide verified, experienced, and dedicated home tutors for all classes and subjects right at your doorstep.</p>
-                <a href="/contact" style="display: inline-block; background: var(--primary); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600;">Request a Tutor Now</a>
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-orange-600">
+                Shree Ram <span class="text-blue-900">Tuitions</span>
+            </div>
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="index.html" class="text-orange-600">Home</a>
+                <a href="about.html" class="hover:text-orange-600 transition">About Us</a>
+                <a href="services.html" class="hover:text-orange-600 transition">Courses</a>
+                <a href="contact.html" class="hover:text-orange-600 transition">Contact Us</a>
+            </nav>
+            <div>
+                <a href="contact.html" class="bg-orange-600 text-white px-5 py-2.5 rounded-full font-medium shadow hover:bg-orange-700 transition">Book Free Demo</a>
             </div>
         </div>
+    </header>
 
-        <div class="admin-link">
-            <a href="/admin">🔐 Access Admin Dashboard</a>
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-4 py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+            <span class="bg-orange-100 text-orange-700 text-sm font-semibold px-3 py-1 rounded-full uppercase tracking-wide">#1 Home Tuition Provider</span>
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-900 mt-4 leading-tight">
+                Find the Best Expert Home Tutors at Your Doorstep!
+            </h1>
+            <p class="mt-4 text-gray-600 text-lg">
+                Empowering students from Nursery to Class 12th with personalized one-on-one attention, concept clarity, and guaranteed academic excellence.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="contact.html" class="bg-orange-600 text-white text-center px-8 py-3.5 rounded-xl font-semibold shadow-lg hover:bg-orange-700 transition">Book a Free Demo Class</a>
+                <a href="services.html" class="border-2 border-blue-900 text-blue-900 text-center px-8 py-3.5 rounded-xl font-semibold hover:bg-blue-50 transition">Explore Courses</a>
+            </div>
         </div>
-    </div>
+        <div>
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1000&auto=format&fit=crop" alt="Home Tuition Teaching" class="rounded-2xl shadow-xl w-full object-cover h-[400px]">
+        </div>
+    </section>
 
-    <script>
-        function switchRole(role) {
-            const tutorBtn = document.querySelectorAll('.role-btn')[0];
-            const parentBtn = document.querySelectorAll('.role-btn')[1];
-            const tutorSection = document.getElementById('tutor-section');
-            const parentSection = document.getElementById('parent-section');
+    <!-- Why Choose Us Section -->
+    <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-blue-900">Why Choose Shree Ram Tuitions?</h2>
+            <p class="text-gray-600 mt-2">We ensure quality education right in the comfort of your home.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 text-left">
+                <div class="p-8 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center font-bold text-xl mb-4">✓</div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-2">Verified Expert Tutors</h3>
+                    <p class="text-gray-600">Rigorous background checks and highly qualified teachers specialized in their subjects.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center font-bold text-xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-2">One-to-One Attention</h3>
+                    <p class="text-gray-600">Personalized pacing tailored specifically to match your child’s grasping speed and learning style.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center font-bold text-xl mb-4">📈</div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-2">Regular Progress Reports</h3>
+                    <p class="text-gray-600">Frequent feedback sessions and weekly tests to track genuine academic improvement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            if (role === 'tutor') {
-                tutorBtn.classList.add('active');
-                parentBtn.classList.remove('active');
-                tutorSection.classList.add('active');
-                parentSection.classList.remove('active');
-            } else {
-                parentBtn.classList.add('active');
-                tutorBtn.classList.remove('active');
-                parentSection.classList.add('active');
-                tutorSection.classList.remove('active');
-            }
-        }
-    </script>
+    <!-- Footer -->
+    <footer class="bg-blue-950 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <p>&copy; 2026 Shree Ram Tuitions. All rights reserved.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="index.html" class="hover:text-orange-400">Home</a>
+                <a href="about.html" class="hover:text-orange-400">About</a>
+                <a href="services.html" class="hover:text-orange-400">Courses</a>
+                <a href="contact.html" class="hover:text-orange-400">Contact</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
