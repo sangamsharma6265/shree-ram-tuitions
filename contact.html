@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Shree Ram Tuitions</title>
+    <title>Contact Us & Tutor Registration - Shree Ram Tuitions</title>
     <!-- Tailwind CSS for modern styling -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,7 +14,6 @@
 <body class="bg-gray-50 text-gray-800">
 
     <!-- Header / Navbar -->
-    <!-- Header / Navbar -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="text-xl font-bold text-orange-600 leading-tight">
@@ -22,12 +21,12 @@
             </div>
             <div class="flex items-center space-x-3">
                 <nav class="hidden md:flex space-x-6 font-medium text-sm">
-                    <a href="index.html" class="hover:text-orange-600 transition">Home</a>
-                    <a href="about.html" class="hover:text-orange-600 transition">About</a>
-                    <a href="services.html" class="hover:text-orange-600 transition">Courses</a>
-                    <a href="contact.html" class="hover:text-orange-600 transition">Contact</a>
+                    <a href="/" class="hover:text-orange-600 transition">Home</a>
+                    <a href="/about.html" class="hover:text-orange-600 transition">About</a>
+                    <a href="/services.html" class="hover:text-orange-600 transition">Courses</a>
+                    <a href="/contact.html" class="text-orange-600">Contact</a>
                 </nav>
-                <a href="contact.html" class="bg-orange-600 text-white text-xs md:text-sm px-3.5 py-2 rounded-full font-medium shadow hover:bg-orange-700 transition shrink-0">Book Demo</a>
+                <a href="#tutor-register" class="bg-blue-900 text-white text-xs md:text-sm px-3.5 py-2 rounded-full font-medium shadow hover:bg-blue-950 transition shrink-0">Register as Tutor</a>
             </div>
         </div>
     </header>
@@ -36,15 +35,15 @@
     <section class="max-w-7xl mx-auto px-4 py-16 text-center">
         <span class="bg-orange-100 text-orange-700 text-sm font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Get In Touch</span>
         <h1 class="text-4xl md:text-5xl font-bold text-blue-900 mt-4">
-            Book a Free Demo or Send an Inquiry
+            Book a Free Demo or Join as a Tutor
         </h1>
         <p class="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
-            Looking for an expert home tutor? Fill out the form below or call us directly, and we will get back to you instantly.
+            Looking for an expert home tutor or want to register as a teacher? Reach out through our contact details or fill out the respective forms below.
         </p>
     </section>
 
-    <!-- Contact Form & Info Section -->
-    <section class="max-w-7xl mx-auto px-4 pb-20">
+    <!-- Contact Info & Student Inquiry Form -->
+    <section class="max-w-7xl mx-auto px-4 pb-16">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 p-8 md:p-12">
             
             <!-- Contact Details -->
@@ -57,29 +56,29 @@
                         <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center font-bold text-xl shrink-0">📞</div>
                         <div>
                             <h3 class="font-bold text-blue-900">Call Us</h3>
-                            <p class="text-gray-600">+91 98765 43210</p>
+                            <p class="text-gray-600">+91 9213723510</p>
                         </div>
                     </div>
                     <div class="flex items-start space-x-4">
                         <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center font-bold text-xl shrink-0">💬</div>
                         <div>
                             <h3 class="font-bold text-blue-900">WhatsApp</h3>
-                            <p class="text-gray-600">+91 98765 43210 (Quick Response)</p>
+                            <p class="text-gray-600">+91 9213723510 (Quick Response)</p>
                         </div>
                     </div>
                     <div class="flex items-start space-x-4">
                         <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center font-bold text-xl shrink-0">✉️</div>
                         <div>
                             <h3 class="font-bold text-blue-900">Email Us</h3>
-                            <p class="text-gray-600">contact@shreeramhometuitions.com</p>
+                            <p class="text-gray-600">sangamsharma6265@gmail.com</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Inquiry Form -->
+            <!-- Student Inquiry Form -->
             <div>
-                <h2 class="text-2xl font-bold text-blue-900 mb-6">Send Us a Message</h2>
+                <h2 class="text-2xl font-bold text-blue-900 mb-6">Student Demo Inquiry</h2>
                 <form action="#" method="POST" class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
@@ -95,7 +94,7 @@
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Message / Requirements</label>
-                        <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none" placeholder="Write your requirements or address details..."></textarea>
+                        <textarea rows="3" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none" placeholder="Write your requirements or address details..."></textarea>
                     </div>
                     <button type="submit" class="w-full bg-orange-600 text-white font-semibold py-3.5 rounded-xl shadow-lg hover:bg-orange-700 transition">Submit Inquiry</button>
                 </form>
@@ -104,15 +103,56 @@
         </div>
     </section>
 
+    <!-- Tutor Registration Form Section -->
+    <section id="tutor-register" class="max-w-4xl mx-auto px-4 pb-24">
+        <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12">
+            <div class="text-center mb-8">
+                <span class="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Join Our Network</span>
+                <h2 class="text-3xl font-bold text-blue-900 mt-2">Tutor Registration Form</h2>
+                <p class="text-gray-600 mt-1">Are you an expert educator? Register with us to receive home tuition opportunities.</p>
+            </div>
+
+            <form action="/register-tutor" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                    <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Enter your full name">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Enter your email">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Enter your phone number">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Subjects You Teach</label>
+                    <input type="text" name="subjects" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="e.g. Maths, Physics (Classes 6-12)">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Teaching Experience (Years)</label>
+                    <input type="number" name="experience" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="e.g. 3">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Location / Area</label>
+                    <input type="text" name="location" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Enter your city/locality">
+                </div>
+                <div class="md:col-span-2 mt-4">
+                    <button type="submit" class="w-full bg-blue-900 text-white font-semibold py-3.5 rounded-xl shadow-lg hover:bg-blue-950 transition">Register as Tutor</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-blue-950 text-white py-8">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
             <p>&copy; 2026 Shree Ram Tuitions. All rights reserved.</p>
             <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="index.html" class="hover:text-orange-400">Home</a>
-                <a href="about.html" class="hover:text-orange-400">About</a>
-                <a href="services.html" class="hover:text-orange-400">Courses</a>
-                <a href="contact.html" class="hover:text-orange-400">Contact</a>
+                <a href="/" class="hover:text-orange-400">Home</a>
+                <a href="/about.html" class="hover:text-orange-400">About</a>
+                <a href="/services.html" class="hover:text-orange-400">Courses</a>
+                <a href="/contact.html" class="hover:text-orange-400">Contact</a>
             </div>
         </div>
     </footer>
