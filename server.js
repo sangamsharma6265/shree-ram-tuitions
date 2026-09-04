@@ -33,7 +33,6 @@ const adminAuth = (req, res, next) => {
         const token = authHeader.split(' ')[1];
         const [username, password] = Buffer.from(token, 'base64').toString().split(':');
         
-        // Tum yahan apna username aur password apne hisaab se badal sakte ho
         if (username === 'admin' && password === 'shreeram123') {
             return next(); 
         }
@@ -61,6 +60,16 @@ app.get('/test', (req, res) => {
 // Serve Home Page (`index.html`)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Serve About Page (`about.html`)
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, 'about.html'));
+});
+
+// Serve Contact Page (`contact.html`)
+app.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, 'contact.html'));
 });
 
 // Handle Tutor Registration & Save to Local JSON File
