@@ -30,6 +30,11 @@ app.get('/google49939a4e776229a4.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'google49939a4e776229a4.html'));
 });
 
+// Sitemap Route
+app.get('/sitemap.xml', (req, res) => {
+    res.sendFile(path.join(__dirname, 'sitemap.xml'));
+});
+
 // Test Route
 app.get('/test', (req, res) => {
     res.send("Server is working perfectly! 🚀");
