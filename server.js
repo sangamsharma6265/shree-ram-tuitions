@@ -4,10 +4,11 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname)));
 
 // Path for local JSON data file
 const dataFilePath = path.join(__dirname, 'tutors.json');
@@ -52,23 +53,20 @@ app.get('/sitemap.xml', (req, res) => {
     res.sendFile(path.join(__dirname, 'sitemap.xml'));
 });
 
-// Test Route
-app.get('/test', (req, res) => {
-    res.send("Server is working perfectly! 🚀");
-});
-
-// Serve Home Page (`index.html`)
+// Serve Main Pages
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Serve About Page (`about.html`)
-app.get('/about', (req, res) => {
+app.get('/about.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'about.html'));
 });
 
-// Serve Contact Page (`contact.html`)
-app.get('/contact', (req, res) => {
+app.get('/services.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'services.html'));
+});
+
+app.get('/contact.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'contact.html'));
 });
 
@@ -90,8 +88,6 @@ app.post('/register-tutor', (req, res) => {
         tutors.push(newTutor);
         fs.writeFileSync(dataFilePath, JSON.stringify(tutors, null, 2));
 
-        console.log("New Tutor saved locally: ", newTutor.name);
-
         res.send(`
             <body style="font-family: Arial; text-align: center; padding-top: 50px; background: #f8fafc;">
                 <h1 style="color: #16a34a;">Registration Successful! 🎉</h1>
@@ -107,7 +103,7 @@ app.post('/register-tutor', (req, res) => {
     }
 });
 
-// Admin Dashboard Route to View All Registered Tutors (Protected by Admin Auth)
+// Admin Dashboard Route
 app.get('/admin', adminAuth, (req, res) => {
     const tutors = getStoredTutors();
 
@@ -141,7 +137,7 @@ app.get('/admin', adminAuth, (req, res) => {
             <div style="max-width: 1100px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
                     <h2 style="color: #1e293b; margin: 0;">Admin Dashboard - Registered Tutors 👨‍🏫</h2>
-                    <a href="/" style="background: #4f46e5; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-size: 14px;">+ Register New Tutor</a>
+                    <a href="/" style="background: #4f46e5; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-size: 14px;">+ Home Page</a>
                 </div>
                 <table style="width: 100%; border-collapse: collapse; text-align: left;">
                     <thead>
