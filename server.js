@@ -25,6 +25,24 @@ const getStoredTutors = () => {
     }
 };
 
+// Admin Authentication Middleware
+const adminAuth = (req, res, next) => {
+    const authHeader = req.headers.authorization;
+    
+    if (authHeader) {
+        const token = authHeader.split(' ')[1];
+        const [username, password] = Buffer.from(token, 'base64').toString().split(':');
+        
+        // Tum yahan apna username aur password apne hisaab se badal sakte ho
+        if (username === 'admin' && password === 'shreeram123') {
+            return next(); 
+        }
+    }
+    
+    res.setHeader('WWW-Authenticate', 'Basic realm="Admin Area"');
+    res.status(401).send('Authentication required. Access denied!');
+};
+
 // Google Search Console Verification Route
 app.get('/google49939a4e776229a4.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'google49939a4e776229a4.html'));
@@ -80,8 +98,8 @@ app.post('/register-tutor', (req, res) => {
     }
 });
 
-// Admin Dashboard Route to View All Registered Tutors
-app.get('/admin', (req, res) => {
+// Admin Dashboard Route to View All Registered Tutors (Protected by Admin Auth)
+app.get('/admin', adminAuth, (req, res) => {
     const tutors = getStoredTutors();
 
     let tableRows = '';
