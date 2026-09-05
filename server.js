@@ -123,9 +123,10 @@ app.post('/contact', (req, res) => {
         const newSubmission = {
             id: Date.now(),
             name: req.body.name,
-            email: req.body.email,
+            email: req.body.email || 'N/A',
             phone: req.body.phone,
-            message: req.body.message || req.body.requirement,
+            requirement: req.body.requirement || 'N/A',
+            message: req.body.message || 'N/A',
             date: new Date().toLocaleString()
         };
 
@@ -147,16 +148,17 @@ app.post('/contact', (req, res) => {
     }
 });
 
-// Admin Dashboard Route
+// Admin Dashboard Route (Tutors & Parents)
 app.get('/admin', adminAuth, (req, res) => {
     const tutors = getStoredTutors();
+    const parents = getStoredParents();
 
-    let tableRows = '';
+    let tutorRows = '';
     if (tutors.length === 0) {
-        tableRows = `<tr><td colspan="7" style="text-align: center; padding: 20px; color: #64748b;">No tutor registrations found yet.</td></tr>`;
+        tutorRows = `<tr><td colspan="7" style="text-align: center; padding: 20px; color: #64748b;">No tutor registrations found yet.</td></tr>`;
     } else {
         tutors.forEach((tutor, index) => {
-            tableRows += `
+            tutorRows += `
                 <tr style="border-bottom: 1px solid #e2e8f0;">
                     <td style="padding: 12px; text-align: center;">${index + 1}</td>
                     <td style="padding: 12px; font-weight: bold; color: #1e293b;">${tutor.name}</td>
@@ -165,6 +167,24 @@ app.get('/admin', adminAuth, (req, res) => {
                     <td style="padding: 12px; color: #475569;">${tutor.subjects}</td>
                     <td style="padding: 12px; text-align: center; color: #475569;">${tutor.experience} Years</td>
                     <td style="padding: 12px; color: #475569;">${tutor.location}</td>
+                </tr>
+            `;
+        });
+    }
+
+    let parentRows = '';
+    if (parents.length === 0) {
+        parentRows = `<tr><td colspan="6" style="text-align: center; padding: 20px; color: #64748b;">No parent inquiries found yet.</td></tr>`;
+    } else {
+        parents.forEach((parent, index) => {
+            parentRows += `
+                <tr style="border-bottom: 1px solid #e2e8f0;">
+                    <td style="padding: 12px; text-align: center;">${index + 1}</td>
+                    <td style="padding: 12px; font-weight: bold; color: #1e293b;">${parent.name}</td>
+                    <td style="padding: 12px; color: #475569;">${parent.phone}</td>
+                    <td style="padding: 12px; color: #475569;">${parent.requirement}</td>
+                    <td style="padding: 12px; color: #475569;">${parent.message}</td>
+                    <td style="padding: 12px; color: #475569; font-size: 13px;">${parent.date}</td>
                 </tr>
             `;
         });
@@ -180,9 +200,30 @@ app.get('/admin', adminAuth, (req, res) => {
         <body style="font-family: Arial, sans-serif; background: #f8fafc; margin: 0; padding: 30px;">
             <div style="max-width: 1100px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
-                    <h2 style="color: #1e293b; margin: 0;">Admin Dashboard - Registered Tutors 👨‍🏫</h2>
+                    <h2 style="color: #1e293b; margin: 0;">Admin Dashboard 📊</h2>
                     <a href="/" style="background: #4f46e5; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-size: 14px;">+ Home Page</a>
                 </div>
+
+                <!-- Parents Section -->
+                <h3 style="color: #ea580c; border-bottom: 2px solid #fdba74; padding-bottom: 8px; margin-top: 20px;">Parent Inquiries / Demo Requests 👨‍👩‍👦</h3>
+                <table style="width: 100%; border-collapse: collapse; text-align: left; margin-bottom: 40px;">
+                    <thead>
+                        <tr style="background: #fff7ed; color: #9a3412; border-bottom: 2px solid #fed7aa;">
+                            <th style="padding: 12px; text-align: center;">#</th>
+                            <th style="padding: 12px;">Name</th>
+                            <th style="padding: 12px;">Phone</th>
+                            <th style="padding: 12px;">Class / Requirement</th>
+                            <th style="padding: 12px;">Message</th>
+                            <th style="padding: 12px;">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${parentRows}
+                    </tbody>
+                </table>
+
+                <!-- Tutors Section -->
+                <h3 style="color: #1e40af; border-bottom: 2px solid #93c5fd; padding-bottom: 8px;">Registered Tutors 👨‍🏫</h3>
                 <table style="width: 100%; border-collapse: collapse; text-align: left;">
                     <thead>
                         <tr style="background: #f1f5f9; color: #334155; border-bottom: 2px solid #cbd5e1;">
@@ -196,7 +237,7 @@ app.get('/admin', adminAuth, (req, res) => {
                         </tr>
                     </thead>
                     <tbody>
-                        ${tableRows}
+                        ${tutorRows}
                     </tbody>
                 </table>
             </div>
