@@ -10,8 +10,9 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname)));
 
-// Path for local JSON data file
+// Paths for local JSON data files
 const dataFilePath = path.join(__dirname, 'tutors.json');
+const parentsDataFilePath = path.join(__dirname, 'parents.json');
 
 // Helper function to read existing tutors
 const getStoredTutors = () => {
@@ -19,6 +20,19 @@ const getStoredTutors = () => {
         return [];
     }
     const fileData = fs.readFileSync(dataFilePath, 'utf-8');
+    try {
+        return JSON.parse(fileData);
+    } catch (e) {
+        return [];
+    }
+};
+
+// Helper function to read existing parent submissions
+const getStoredParents = () => {
+    if (!fs.existsSync(parentsDataFilePath)) {
+        return [];
+    }
+    const fileData = fs.readFileSync(parentsDataFilePath, 'utf-8');
     try {
         return JSON.parse(fileData);
     } catch (e) {
@@ -95,6 +109,36 @@ app.post('/register-tutor', (req, res) => {
                 <br>
                 <a href="/" style="background: #4f46e5; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-right: 10px;">Go Back Home</a>
                 <a href="/admin" style="background: #0284c7; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">View Admin Dashboard</a>
+            </body>
+        `);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error saving data.");
+    }
+});
+
+// Handle Parent/Contact Form Submission
+app.post('/contact', (req, res) => {
+    try {
+        const newSubmission = {
+            id: Date.now(),
+            name: req.body.name,
+            email: req.body.email,
+            phone: req.body.phone,
+            message: req.body.message || req.body.requirement,
+            date: new Date().toLocaleString()
+        };
+
+        const submissions = getStoredParents();
+        submissions.push(newSubmission);
+        fs.writeFileSync(parentsDataFilePath, JSON.stringify(submissions, null, 2));
+
+        res.send(`
+            <body style="font-family: Arial; text-align: center; padding-top: 50px; background: #f8fafc;">
+                <h1 style="color: #16a34a;">Request Submitted Successfully! 🎉</h1>
+                <p>Thank you <b>${newSubmission.name}</b>. We have received your requirement and will contact you soon.</p>
+                <br>
+                <a href="/" style="background: #4f46e5; color: white; padding: 10px 20px; text-decoration: none; border-radius: 50px;">Go Back Home</a>
             </body>
         `);
     } catch (error) {
