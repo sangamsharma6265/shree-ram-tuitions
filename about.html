@@ -4,700 +4,834 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>About Us | Shree Ram Tuitions, Delhi NCR</title>
-
-  <meta
-    name="description"
-    content="Learn about Shree Ram Tuitions: home tuition, spoken English, music lessons and shadow teacher support across Delhi NCR, including Dwarka and Noida."
-  >
-
+  <title>About Us | Shree Ram Tuitions | Delhi NCR</title>
+  <meta name="description" content="Learn about Shree Ram Tuitions, led by Sangam Sharma. Explore personalised home tuition, spoken English, music and shadow teacher support across Delhi NCR.">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="theme-color" content="#13243a">
+  <meta name="theme-color" content="#0b1220">
 
-  <link
-    rel="canonical"
-    href="https://shreeramhometuitions.com/about.html"
-  >
+  <link rel="canonical" href="https://shreeramhometuitions.com/about.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-
-  <!-- Social sharing -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_IN">
   <meta property="og:site_name" content="Shree Ram Tuitions">
-  <meta
-    property="og:url"
-    content="https://shreeramhometuitions.com/about.html"
-  >
-  <meta
-    property="og:title"
-    content="About Shree Ram Tuitions | Personalised Learning in Delhi NCR"
-  >
-  <meta
-    property="og:description"
-    content="Discover our approach to school tuition, spoken English, music lessons and individual educational support across Delhi NCR."
-  >
-  <meta
-    property="og:image"
-    content="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80"
-  >
-  <meta
-    property="og:image:alt"
-    content="Learners attending an educational session"
-  >
+  <meta property="og:title" content="About Shree Ram Tuitions">
+  <meta property="og:description" content="Personal attention and meaningful learning across Delhi NCR. Meet our founder and explore our teaching approach.">
+  <meta property="og:url" content="https://shreeramhometuitions.com/about.html">
+  <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta
-    name="twitter:title"
-    content="About Shree Ram Tuitions | Delhi NCR"
-  >
-  <meta
-    name="twitter:description"
-    content="Personalised school tuition, spoken English, music lessons and shadow teacher support across Delhi NCR."
-  >
-  <meta
-    name="twitter:image"
-    content="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80"
-  >
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1220;
+      --surface: #121d2f;
+      --raised: #19263b;
+      --text: #f1f5f9;
+      --muted: #b5c2d5;
+      --border: #2b3b52;
+      --accent: #fdba74;
+      --radius: 20px;
+    }
 
-  <!-- Fonts and shared assets -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://images.unsplash.com">
+    * { box-sizing: border-box; }
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700;750;800&amp;display=swap"
-    rel="stylesheet"
-  >
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 110px;
+    }
 
-  <link rel="stylesheet" href="/style.css">
-  <script src="/script.js" defer></script>
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
 
-  <!-- Structured data -->
+    a { color: inherit; }
+    button, summary { font: inherit; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+      letter-spacing: -.03em;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4.3rem);
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 18px;
+    }
+
+    h3 { font-size: 1.25rem; }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      padding: 12px 18px;
+      background: var(--accent);
+      color: #101827;
+      z-index: 100;
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    .topbar {
+      padding: 9px 0;
+      background: #080e19;
+      border-bottom: 1px solid var(--border);
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(11, 18, 32, .97);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 84px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+    }
+
+    .brand img { width: 42px; height: 42px; }
+    .brand-copy { display: grid; }
+    .brand strong { font-size: 1.15rem; }
+    .brand small { color: var(--muted); font-size: .72rem; }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav > a {
+      text-decoration: none;
+      font-size: .88rem;
+      color: var(--muted);
+    }
+
+    .nav > a:hover,
+    .nav > a[aria-current="page"] {
+      color: var(--accent);
+    }
+
+    .enroll { position: relative; }
+
+    .enroll summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 10px 15px;
+      background: var(--accent);
+      color: #172033;
+      border-radius: 10px;
+      font-size: .88rem;
+      font-weight: 750;
+    }
+
+    .enroll summary::-webkit-details-marker { display: none; }
+    .enroll summary::after { content: " ▾"; margin-left: 5px; }
+
+    .dropdown {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 12px);
+      width: 240px;
+      padding: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 18px 50px #0006;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px 12px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: .9rem;
+    }
+
+    .dropdown a:hover { background: var(--raised); }
+
+    .menu-button {
+      display: none;
+      padding: 8px 13px;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 75px 0 55px;
+      background:
+        radial-gradient(ellipse at 85% 20%, #28406166, transparent 60%);
+    }
+
+    .hero p {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 750;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .accent { color: var(--accent); }
+    .muted { color: var(--muted); }
+
+    .section { padding: 65px 0; }
+
+    .section-soft {
+      background: #0e1727;
+      border-block: 1px solid #1b2940;
+    }
+
+    .section-heading {
+      max-width: 730px;
+      margin-bottom: 35px;
+    }
+
+    .section-heading p { color: var(--muted); }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .card p { color: var(--muted); }
+
+    .number {
+      display: block;
+      margin-bottom: 20px;
+      color: var(--accent);
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .founder {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 25px;
+    }
+
+    .founder img {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .founder-copy { padding: clamp(25px, 4vw, 45px); }
+    .founder-copy p { color: var(--muted); }
+
+    .founder-copy .role {
+      color: var(--accent);
+      font-weight: 650;
+    }
+
+    .facts {
+      margin: 22px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .facts li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .facts strong { color: var(--text); }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      background: var(--accent);
+      color: #172033;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-weight: 750;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .button:hover { background: #fed7aa; }
+
+    .button-secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .button-secondary:hover { background: var(--raised); }
+
+    .service-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card .button { margin-top: auto; }
+
+    .areas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 25px 0;
+    }
+
+    .areas span {
+      padding: 8px 15px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: .9rem;
+    }
+
+    .cta {
+      padding: 40px;
+      background: linear-gradient(120deg, #19283e, #121d2f);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .cta p { color: var(--muted); max-width: 750px; }
+
+    footer {
+      padding: 45px 0 90px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 35px;
+    }
+
+    footer h2 { font-size: 1rem; color: var(--text); }
+    .footer-links { list-style: none; padding: 0; }
+    .footer-links li { margin-bottom: 9px; }
+
+    .footer-links a {
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-bottom {
+      margin-top: 30px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+    }
+
+    .quick-contact {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      gap: 8px;
+      z-index: 20;
+    }
+
+    .quick-contact a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 750;
+      box-shadow: 0 8px 25px #0004;
+    }
+
+    .whatsapp { background: #22c55e; color: #052e16; }
+
+    .call {
+      background: var(--raised);
+      border: 1px solid var(--border);
+    }
+
+    @media (max-width: 1050px) {
+      .header-inner { flex-wrap: wrap; padding-block: 15px; }
+      .nav { width: 100%; justify-content: space-between; flex-wrap: wrap; }
+    }
+
+    @media (max-width: 800px) {
+      .founder { grid-template-columns: 1fr; }
+      .founder img { min-height: 0; height: 500px; }
+      .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .container { width: calc(100% - 32px); }
+      .brand strong { font-size: 1.05rem; }
+      .brand small { font-size: .66rem; }
+      .brand img { width: 36px; height: 36px; }
+      .js-enabled .menu-button { display: block; }
+      .js-enabled .nav { display: none; }
+      .js-enabled .nav.is-open { display: flex; }
+
+      .nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding-top: 10px;
+      }
+
+      .nav > a { padding: 10px 0; }
+      .enroll { margin-top: 10px; }
+
+      .dropdown {
+        position: static;
+        width: 100%;
+        margin-top: 8px;
+        box-shadow: none;
+      }
+
+      .grid-2, .grid-3, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { padding: 45px 0; }
+      .section { padding: 45px 0; }
+      .cta { padding: 25px; }
+      .founder img { height: auto; aspect-ratio: 3 / 4; }
+      .quick-contact { right: 16px; bottom: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "EducationalOrganization",
-        "@id": "https://shreeramhometuitions.com/#organization",
-        "name": "Shree Ram Tuitions",
-        "url": "https://shreeramhometuitions.com/",
-        "logo": "https://shreeramhometuitions.com/favicon.svg",
-        "telephone": "+919213723510",
-        "email": "sangamsharma6265@gmail.com",
-        "description": "School home tuition, spoken English, music lessons and shadow teacher support across Delhi NCR.",
-        "areaServed": [
-          {
-            "@type": "Place",
-            "name": "Delhi NCR"
-          },
-          {
-            "@type": "Place",
-            "name": "Dwarka, Delhi"
-          },
-          {
-            "@type": "Place",
-            "name": "Tilak Nagar, Delhi"
-          },
-          {
-            "@type": "Place",
-            "name": "Janakpuri, Delhi"
-          },
-          {
-            "@type": "Place",
-            "name": "Rohini, Delhi"
-          },
-          {
-            "@type": "Place",
-            "name": "Noida"
-          },
-          {
-            "@type": "Place",
-            "name": "Paschim Vihar, Delhi"
-          },
-          {
-            "@type": "Place",
-            "name": "Punjabi Bagh, Delhi"
-          }
-        ]
-      },
-      {
-        "@type": "AboutPage",
-        "@id": "https://shreeramhometuitions.com/about.html#webpage",
-        "url": "https://shreeramhometuitions.com/about.html",
-        "name": "About Us | Shree Ram Tuitions, Delhi NCR",
-        "description": "Our approach to personalised teaching and educational support across Delhi NCR.",
-        "inLanguage": "en-IN",
-        "mainEntity": {
-          "@id": "https://shreeramhometuitions.com/#organization"
-        },
-        "breadcrumb": {
-          "@id": "https://shreeramhometuitions.com/about.html#breadcrumb"
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://shreeramhometuitions.com/about.html#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://shreeramhometuitions.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "About Us",
-            "item": "https://shreeramhometuitions.com/about.html"
-          }
-        ]
+    "@type": "AboutPage",
+    "@id": "https://shreeramhometuitions.com/about.html#webpage",
+    "url": "https://shreeramhometuitions.com/about.html",
+    "name": "About Shree Ram Tuitions",
+    "inLanguage": "en-IN",
+    "mainEntity": {
+      "@type": "EducationalOrganization",
+      "@id": "https://shreeramhometuitions.com/#organization",
+      "name": "Shree Ram Tuitions",
+      "url": "https://shreeramhometuitions.com/",
+      "telephone": "+919213723510",
+      "founder": {
+        "@type": "Person",
+        "name": "Sangam Sharma",
+        "jobTitle": "Founder and Director"
       }
-    ]
+    }
   }
   </script>
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Top bar -->
   <div class="topbar">
-    <div class="container topbar-inner">
-      <span>Personalised teaching support across Delhi NCR</span>
-
-      <a class="topbar-extra" href="tel:+919213723510">
-        Call us: +91 9213723510
-      </a>
+    <div class="container">
+      <span>Personalised learning across Delhi NCR</span>
+      <a href="tel:+919213723510">Call: +91 9213723510</a>
     </div>
   </div>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container navbar">
+  <header class="header">
+    <div class="container header-inner">
       <a class="brand" href="/" aria-label="Shree Ram Tuitions home">
-        <img
-          class="brand-mark"
-          src="/favicon.svg"
-          alt=""
-          width="46"
-          height="46"
-        >
-
-        <span>
-          <span class="brand-name">Shree Ram Tuitions</span>
-          <span class="brand-tagline">
-            Personal attention. Meaningful learning.
-          </span>
+        <img src="/favicon.svg" alt="" width="42" height="42">
+        <span class="brand-copy">
+          <strong>Shree Ram Tuitions</strong>
+          <small>Personal attention. Meaningful learning.</small>
         </span>
       </a>
 
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-controls="primary-navigation"
-        aria-expanded="false"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          aria-hidden="true"
-        >
-          <path d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
+      <button class="menu-button" type="button"
+        aria-controls="navigation" aria-expanded="false">
+        Menu ☰
       </button>
 
-      <nav aria-label="Main navigation">
-        <ul class="nav-links" id="primary-navigation">
-          <li><a href="/">Home</a></li>
+      <nav class="nav" id="navigation" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/about.html" aria-current="page">About Us</a>
+        <a href="/services.html">Services</a>
+        <a href="/faculty.html">Faculty</a>
+        <a href="/home-tuitions.html">Home Tuitions</a>
+        <a href="/contact.html">Contact</a>
 
-          <li>
-            <a href="/about.html" aria-current="page">About Us</a>
-          </li>
-
-          <li><a href="/services.html">Our Services</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-
-          <li>
-            <a class="btn" href="/contact.html#demo-inquiry">
-              Find a Teacher
+        <details class="enroll">
+          <summary>Enroll Now</summary>
+          <div class="dropdown">
+            <a href="/contact.html#demo-inquiry">Find a Teacher</a>
+            <a href="/contact.html?service=Spoken%20English#demo-inquiry">
+              Spoken English
             </a>
-          </li>
-        </ul>
+            <a href="/contact.html?service=Music%20Lessons#demo-inquiry">
+              Music Lessons
+            </a>
+            <a href="/contact.html?service=Shadow%20Teacher%20Support#demo-inquiry">
+              Shadow Teacher Support
+            </a>
+            <a href="/contact.html#tutor-register">Join as Teacher</a>
+          </div>
+        </details>
       </nav>
     </div>
   </header>
 
-  <main id="main-content">
-    <!-- Page introduction -->
-    <section class="page-hero" aria-labelledby="page-title">
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-heading">
       <div class="container">
-        <nav class="breadcrumbs" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span aria-hidden="true">/</span>
-          <span aria-current="page">About Us</span>
-        </nav>
-
         <span class="eyebrow">About Shree Ram Tuitions</span>
-
-        <h1 id="page-title">
-          Personal attention for
-          <span class="text-accent">every learning journey.</span>
+        <h1 id="hero-heading">
+          Personal attention.<br>
+          <span class="accent">Meaningful learning.</span>
         </h1>
-
         <p>
-          We help learners and families across Delhi NCR explore the
-          teaching support they need—from school subjects and spoken
-          English to music lessons and shadow teacher support.
+          We help learners and families explore teaching support
+          suited to their subjects, goals and everyday needs.
+          Our services span school home tuition, spoken English,
+          music lessons and shadow teacher support across Delhi NCR.
         </p>
       </div>
     </section>
 
-    <!-- Mission -->
-    <section class="section" aria-labelledby="mission-title">
-      <div class="container split-grid">
-        <div>
-          <img
-            class="content-image"
-            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
-            srcset="
-              https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&amp;fit=crop&amp;w=480&amp;q=85 480w,
-              https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&amp;fit=crop&amp;w=1000&amp;q=85 1000w
-            "
-            sizes="(max-width: 800px) 100vw, 45vw"
-            alt="Learners attending an educational session"
-            width="1000"
-            height="750"
-            loading="lazy"
-            decoding="async"
-          >
+    <section class="section section-soft">
+      <div class="container grid-2">
+        <article class="card">
+          <span class="eyebrow">Our purpose</span>
+          <h2>Make learning easier to approach.</h2>
+          <p>
+            A learner should feel comfortable asking questions,
+            revisiting difficult ideas and building understanding
+            at a suitable pace.
+          </p>
+          <p>
+            We start by discussing the student’s current needs,
+            subjects and goals before exploring teaching options.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="eyebrow">Our focus</span>
+          <h2>Support that fits the learner.</h2>
+          <p>
+            Every enquiry brings a different starting point.
+            Some students need help with school concepts, while
+            others want to develop communication or creative skills.
+          </p>
+          <p>
+            We discuss the service, locality and schedule to
+            understand what support could work for you.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="founder-heading">
+      <div class="container">
+        <article class="founder">
+          <img src="/images/sangam-sharma.png"
+            alt="Sangam Sharma, Founder and Director of Shree Ram Tuitions"
+            width="1086" height="1448"
+            loading="lazy" decoding="async">
+
+          <div class="founder-copy">
+            <span class="eyebrow">Meet our founder</span>
+            <h2 id="founder-heading">Sangam Sharma</h2>
+            <p class="role">
+              Founder &amp; Director · Mathematics &amp; Science Educator
+            </p>
+            <p>
+              Sangam leads Shree Ram Tuitions with an emphasis
+              on concept clarity, individual attention and
+              structured practice. His teaching connects
+              explanations with step-by-step problem solving.
+            </p>
+
+            <ul class="facts">
+              <li>
+                <strong>Teaching experience:</strong> 10+ years
+              </li>
+              <li>
+                <strong>Classes 9–10:</strong>
+                Mathematics &amp; Science
+              </li>
+              <li>
+                <strong>Classes 11–12:</strong>
+                Mathematics &amp; Physics
+              </li>
+              <li>
+                <strong>Technical background:</strong>
+                Software development, programming &amp; AI projects
+              </li>
+            </ul>
+
+            <a class="button" href="/faculty.html">
+              Meet Our Faculty →
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Our teaching approach</span>
+          <h2>Build understanding, one step at a time.</h2>
+          <p>
+            Clear explanations and purposeful practice create
+            space for students to ask questions and strengthen
+            their foundations.
+          </p>
         </div>
 
-        <div class="content-copy">
-          <span class="eyebrow">Our purpose</span>
+        <div class="grid-3">
+          <article class="card">
+            <span class="number" aria-hidden="true">01</span>
+            <h3>Understand the Starting Point</h3>
+            <p>
+              Discuss current challenges, learning goals and
+              topics that need more attention.
+            </p>
+          </article>
 
-          <h2 id="mission-title">
-            Make learning clearer, more personal and easier to approach.
-          </h2>
+          <article class="card">
+            <span class="number" aria-hidden="true">02</span>
+            <h3>Explain with Clarity</h3>
+            <p>
+              Break topics into manageable steps and connect
+              ideas with understandable examples.
+            </p>
+          </article>
 
-          <p>
-            Every learner starts from a different place. Some need help
-            understanding a school subject. Others want to become more
-            comfortable speaking English, explore music or receive
-            additional support in their educational setting.
-          </p>
-
-          <p>
-            At Shree Ram Tuitions, we start by understanding those needs.
-            We discuss the learner’s goals, location and schedule before
-            exploring suitable teaching options.
-          </p>
-
-          <ul class="check-list">
-            <li>Understand the learner’s starting point</li>
-            <li>Focus on explanations, questions and practice</li>
-            <li>Discuss expectations before lessons begin</li>
-            <li>Consider the learner’s pace and individual needs</li>
-          </ul>
-
-          <a class="btn" href="/services.html">
-            Explore Our Services
-            <span aria-hidden="true">→</span>
-          </a>
+          <article class="card">
+            <span class="number" aria-hidden="true">03</span>
+            <h3>Practise with Direction</h3>
+            <p>
+              Use questions, revision and doubt discussions
+              to identify gaps and develop understanding.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Services overview -->
-    <section class="section section-soft" aria-labelledby="support-title">
+    <section class="section">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">What we offer</span>
-          <h2 id="support-title">Different goals. Thoughtful support.</h2>
-          <p>
-            Choose the kind of teaching support you need, then tell us
-            about your specific requirements.
-          </p>
+          <span class="eyebrow">Learning services</span>
+          <h2>School subjects and skills beyond the classroom.</h2>
         </div>
 
-        <div class="grid-4">
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">📚</div>
+        <div class="grid-2">
+          <article class="card service-card">
             <h3>School Home Tuition</h3>
             <p>
-              Subject support for Classes 1–12, including concept
-              explanations, revision and examination preparation.
+              Enquire about tuition for Classes 1–12,
+              subject revision and examination preparation.
             </p>
-            <a
-              class="text-accent"
-              href="/services.html#school-tuition"
-            >
-              Explore school tuition →
+            <a class="button button-secondary"
+              href="/home-tuitions.html">
+              Explore Home Tuition →
             </a>
           </article>
 
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">💬</div>
+          <article class="card service-card">
             <h3>Spoken English</h3>
             <p>
-              English communication practice based on the learner’s
-              current level, everyday needs and speaking goals.
+              Discuss conversation, vocabulary, pronunciation
+              and communication practice at your current level.
             </p>
-            <a
-              class="text-accent"
-              href="/services.html#spoken-english"
-            >
-              Explore spoken English →
+            <a class="button button-secondary"
+              href="/contact.html?service=Spoken%20English#demo-inquiry">
+              Discuss English Lessons →
             </a>
           </article>
 
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">♫</div>
+          <article class="card service-card">
             <h3>Music Lessons</h3>
             <p>
-              Enquire about music teaching for your interests and
-              learning level, and discuss suitable lesson options.
+              Share your musical interests and learning goals
+              to discuss suitable teaching options.
             </p>
-            <a
-              class="text-accent"
-              href="/services.html#music-lessons"
-            >
-              Explore music lessons →
+            <a class="button button-secondary"
+              href="/contact.html?service=Music%20Lessons#demo-inquiry">
+              Discuss Music Lessons →
             </a>
           </article>
 
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">🤝</div>
-            <h3>Shadow Teachers</h3>
+          <article class="card service-card">
+            <h3>Shadow Teacher Support</h3>
             <p>
-              Discuss individual educational support for a child,
-              with the role agreed around family and school needs.
+              Discuss individual educational support, with
+              the role shaped around the child’s needs and
+              agreed with the family and school.
             </p>
-            <a
-              class="text-accent"
-              href="/services.html#shadow-teacher"
-            >
-              Explore learning support →
+            <a class="button button-secondary"
+              href="/contact.html?service=Shadow%20Teacher%20Support#demo-inquiry">
+              Discuss Support Needs →
             </a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Principles -->
-    <section class="section" aria-labelledby="principles-title">
+    <section class="section section-soft">
       <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Our approach</span>
-          <h2 id="principles-title">Good teaching starts with listening.</h2>
-          <p>
-            These principles guide the learning experience we aim to
-            help families and teachers build.
-          </p>
-        </div>
+        <span class="eyebrow">Our service areas</span>
+        <h2>Serving learners across Delhi NCR.</h2>
+        <p class="muted">
+          We mainly operate in the areas below and welcome
+          enquiries from across Delhi NCR. Teacher availability
+          depends on your service, locality and schedule.
+        </p>
 
-        <div class="grid-3">
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">🎯</div>
-            <h3>Clear Learning Goals</h3>
-            <p>
-              Identify the topics, skills or routines that need attention.
-              A clear starting point helps make lessons more focused.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">🌱</div>
-            <h3>Patient Explanations</h3>
-            <p>
-              Give learners room to ask questions, revisit ideas and
-              practise without feeling rushed through difficult topics.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">💬</div>
-            <h3>Open Communication</h3>
-            <p>
-              Discuss the schedule, teaching approach and expectations
-              so learners, parents and teachers can start with clarity.
-            </p>
-          </article>
+        <div class="areas" aria-label="Main service areas">
+          <span>Dwarka</span>
+          <span>Tilak Nagar</span>
+          <span>Janakpuri</span>
+          <span>Rohini</span>
+          <span>Noida</span>
+          <span>Paschim Vihar</span>
+          <span>Punjabi Bagh</span>
+          <span>Delhi NCR</span>
         </div>
       </div>
     </section>
 
-    <!-- Coverage -->
-    <section
-      class="section section-soft"
-      id="areas-we-cover"
-      aria-labelledby="coverage-title"
-    >
+    <section class="section">
       <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Our coverage</span>
-          <h2 id="coverage-title">Teaching support across Delhi NCR</h2>
+        <div class="cta">
+          <span class="eyebrow">Let’s discuss your next step</span>
+          <h2>Tell us what you want to learn.</h2>
           <p>
-            We cover Delhi NCR, with a particular focus on the localities
-            below. Contact us to discuss teacher availability for your
-            area, service and preferred timings.
+            Share the learner’s class or goals, required service,
+            locality and preferred timings. We’ll discuss
+            the available teaching options with you.
           </p>
-        </div>
 
-        <div class="grid-4">
-          <div class="subject-card">
-            <span class="subject-icon" aria-hidden="true">📍</span>
-            <div>
-              <h3>Dwarka</h3>
-              <p>Delhi</p>
-            </div>
+          <div class="actions">
+            <a class="button" href="/contact.html#demo-inquiry">
+              Send an Enquiry →
+            </a>
+            <a class="button button-secondary"
+              href="tel:+919213723510">
+              Call +91 9213723510
+            </a>
           </div>
-
-          <div class="subject-card">
-            <span class="subject-icon" aria-hidden="true">📍</span>
-            <div>
-              <h3>Tilak Nagar</h3>
-              <p>Delhi</p>
-            </div>
-          </div>
-
-          <div class="subject-card">
-            <span class="subject-icon" aria-hidden="true">📍</span>
-            <div>
-              <h3>Janakpuri</h3>
-              <p>Delhi</p>
-            </div>
-          </div>
-
-          <div class="subject-card">
-            <span class="subject-icon" aria-hidden="true">📍</span>
-            <div>
-              <h3>Rohini</h3>
-              <p>Delhi</p>
-            </div>
-          </div>
-
-          <div class="subject-card">
-            <span class="subject-icon" aria-hidden="true">📍</span>
-            <div>
-              <h3>Noida</h3>
-              <p>Delhi NCR</p>
-            </div>
-          </div>
-
-          <div class="subject-card">
-            <span class="subject-icon" aria-hidden="true">📍</span>
-            <div>
-              <h3>Paschim Vihar</h3>
-              <p>Delhi</p>
-            </div>
-          </div>
-
-          <div class="subject-card">
-            <span class="subject-icon" aria-hidden="true">📍</span>
-            <div>
-              <h3>Punjabi Bagh</h3>
-              <p>Delhi</p>
-            </div>
-          </div>
-
-          <a class="subject-card" href="/contact.html#demo-inquiry">
-            <span class="subject-icon" aria-hidden="true">🗺️</span>
-            <div>
-              <h3>Other NCR Localities</h3>
-              <p>Enquire for your area →</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="info-banner" style="margin-top: 28px;">
-          <p>
-            <strong>Tell us your locality when enquiring.</strong>
-            Teacher availability can vary by subject, service, location
-            and schedule. Sharing these details helps us discuss
-            relevant options with you.
-          </p>
         </div>
       </div>
     </section>
-
-    <!-- What to expect -->
-    <section class="section" aria-labelledby="getting-started-title">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Getting started</span>
-          <h2 id="getting-started-title">Know what to expect before you begin.</h2>
-          <p>
-            A short conversation can help clarify the learner’s needs
-            and the practical details of arranging lessons.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <article class="step-card">
-            <span class="step-number" aria-hidden="true">01</span>
-            <h3>Share the Details</h3>
-            <p>
-              Tell us the learner’s class or learning goal, the service
-              required, your locality and suitable timings.
-            </p>
-          </article>
-
-          <article class="step-card">
-            <span class="step-number" aria-hidden="true">02</span>
-            <h3>Discuss the Options</h3>
-            <p>
-              Ask about teacher availability, lesson format, fees and
-              whether a demo can be arranged for your requirements.
-            </p>
-          </article>
-
-          <article class="step-card">
-            <span class="step-number" aria-hidden="true">03</span>
-            <h3>Confirm the Plan</h3>
-            <p>
-              Agree on the schedule, learning priorities and teaching
-              expectations before starting regular lessons.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Recruitment -->
-    <section class="section section-soft" aria-labelledby="join-title">
-      <div class="container split-grid">
-        <div class="content-copy">
-          <span class="eyebrow">For teachers</span>
-          <h2 id="join-title">Bring your teaching skills to our network.</h2>
-          <p>
-            We welcome registration enquiries from school tutors,
-            spoken English trainers, music teachers and shadow teachers
-            serving Delhi NCR.
-          </p>
-          <p>
-            Share your specialisation, experience and preferred locations
-            so we can understand your profile and the kind of teaching
-            work you are looking for.
-          </p>
-
-          <a class="btn btn-dark" href="/contact.html#tutor-register">
-            Register as a Teacher
-          </a>
-        </div>
-
-        <div class="card">
-          <h3>What to include in your registration</h3>
-          <ul class="check-list">
-            <li>Your subjects or teaching specialisation</li>
-            <li>Your teaching experience</li>
-            <li>Your preferred Delhi NCR localities</li>
-            <li>Your phone number and email address</li>
-          </ul>
-          <p>
-            Registration allows us to review your details; teaching
-            opportunities depend on relevant learner requirements.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section
-      class="section"
-      aria-labelledby="contact-cta-title"
-      style="padding-bottom: 0;"
-    >
-      <div class="container">
-        <div class="cta-panel">
-          <div>
-            <h2 id="contact-cta-title">
-              Let’s discuss the support you are looking for.
-            </h2>
-            <p>
-              Whether it is a school subject, a new skill or individual
-              learning support, start by sharing your requirements.
-            </p>
-          </div>
-
-          <a class="btn btn-light" href="/contact.html#demo-inquiry">
-            Send an Enquiry
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <div class="section" aria-hidden="true"></div>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
+  <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a class="brand" href="/" aria-label="Shree Ram Tuitions home">
-            <img
-              class="brand-mark"
-              src="/favicon.svg"
-              alt=""
-              width="46"
-              height="46"
-              loading="lazy"
-            >
-
-            <span>
-              <span class="brand-name">Shree Ram Tuitions</span>
-              <span class="brand-tagline">
-                Personal attention. Meaningful learning.
-              </span>
-            </span>
-          </a>
-
-          <p class="footer-description">
-            Home tuition, spoken English, music lessons and shadow
-            teacher support across Delhi NCR.
+          <h2>Shree Ram Tuitions</h2>
+          <p>
+            Home tuition, spoken English, music lessons and
+            individual educational support across Delhi NCR.
           </p>
+          <p>Personal attention. Meaningful learning.</p>
         </div>
 
         <div>
-          <h2 class="footer-heading">Explore</h2>
+          <h2>Explore</h2>
           <ul class="footer-links">
             <li><a href="/">Home</a></li>
             <li><a href="/about.html">About Us</a></li>
-            <li><a href="/services.html">Our Services</a></li>
-            <li><a href="/contact.html">Contact Us</a></li>
-            <li><a href="/#faqs">FAQs</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/faculty.html">Faculty</a></li>
+            <li><a href="/home-tuitions.html">Home Tuitions</a></li>
+            <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
 
         <div>
-          <h2 class="footer-heading">Learning Services</h2>
-          <ul class="footer-links">
-            <li>
-              <a href="/services.html#school-tuition">School Home Tuition</a>
-            </li>
-            <li>
-              <a href="/services.html#spoken-english">Spoken English</a>
-            </li>
-            <li>
-              <a href="/services.html#music-lessons">Music Lessons</a>
-            </li>
-            <li>
-              <a href="/services.html#shadow-teacher">Shadow Teacher Support</a>
-            </li>
-            <li>
-              <a href="/contact.html#tutor-register">Teacher Registration</a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 class="footer-heading">Get in Touch</h2>
+          <h2>Get in Touch</h2>
           <ul class="footer-links">
             <li>
               <a href="tel:+919213723510">+91 9213723510</a>
@@ -708,61 +842,85 @@
               </a>
             </li>
             <li>
-              <a
-                href="https://wa.me/919213723510"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Message us on WhatsApp
-                <span class="sr-only">(opens in a new tab)</span>
+              <a href="/contact.html#demo-inquiry">
+                Find a Teacher
               </a>
             </li>
-            <li><a href="#areas-we-cover">Areas We Cover</a></li>
+            <li>
+              <a href="/contact.html#tutor-register">
+                Teacher Registration
+              </a>
+            </li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>
-          &copy; <span id="copyright-year">2026</span>
-          Shree Ram Tuitions. All rights reserved.
-        </p>
-        <p>Serving learners and families across Delhi NCR.</p>
+        © <span id="year">2026</span> Shree Ram Tuitions.
+        All rights reserved.
       </div>
     </div>
   </footer>
 
-  <!-- Quick contact -->
-  <div class="floating-contact" aria-label="Quick contact">
-    <a
-      class="floating-button floating-whatsapp"
-      href="https://wa.me/919213723510?text=Hello%20Shree%20Ram%20Tuitions%2C%20I%20would%20like%20to%20enquire%20about%20teaching%20support%20in%20Delhi%20NCR."
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Chat on WhatsApp (opens in a new tab)"
-    >
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M20.52 3.48A11.9 11.9 0 0 0 12.04 0C5.45 0 .09 5.36.09 11.95c0 2.11.55 4.17 1.6 5.99L0 24l6.24-1.64a11.94 11.94 0 0 0 5.8 1.48h.01C18.64 23.84 24 18.48 24 11.89c0-3.19-1.24-6.17-3.48-8.41ZM12.05 21.82a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.7.97.99-3.61-.24-.37a9.85 9.85 0 0 1-1.51-5.27c0-5.47 4.45-9.92 9.93-9.92a9.85 9.85 0 0 1 7.02 2.91 9.86 9.86 0 0 1 2.9 7.02c0 5.48-4.45 9.93-9.98 9.86Zm5.44-7.43c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"></path>
-      </svg>
-    </a>
-
-    <a
-      class="floating-button floating-call"
-      href="tel:+919213723510"
-      aria-label="Call Shree Ram Tuitions"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.79a2 2 0 0 1-.45 2.11L8.09 9.89a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.34 1.83.58 2.79.7A2 2 0 0 1 22 16.92Z"></path>
-      </svg>
+  <div class="quick-contact" aria-label="Quick contact">
+    <a class="call" href="tel:+919213723510"
+      aria-label="Call Shree Ram Tuitions">Call</a>
+    <a class="whatsapp"
+      href="https://wa.me/919213723510?text=Hello%2C%20I%20would%20like%20to%20discuss%20teaching%20support."
+      target="_blank" rel="noopener noreferrer"
+      aria-label="Discuss teaching support on WhatsApp">
+      WhatsApp
     </a>
   </div>
+
+  <script>
+    document.documentElement.classList.add("js-enabled");
+
+    const menuButton = document.querySelector(".menu-button");
+    const navigation = document.querySelector("#navigation");
+    const enroll = document.querySelector(".enroll");
+
+    function closeMenu() {
+      navigation.classList.remove("is-open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "Menu ☰";
+      enroll.open = false;
+    }
+
+    menuButton.addEventListener("click", () => {
+      const open = navigation.classList.toggle("is-open");
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.textContent = open ? "Close ✕" : "Menu ☰";
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".enroll")) enroll.open = false;
+      if (!event.target.closest(".header")) closeMenu();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        const menuWasOpen = navigation.classList.contains("is-open");
+        const dropdownWasOpen = enroll.open;
+        closeMenu();
+
+        if (menuWasOpen) menuButton.focus();
+        else if (dropdownWasOpen) {
+          enroll.querySelector("summary").focus();
+        }
+      }
+    });
+
+    navigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 700) closeMenu();
+    });
+
+    document.querySelector("#year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>

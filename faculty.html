@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Our Faculty | Shree Ram Tuitions | Delhi NCR</title>
+  <meta name="description" content="Meet Sangam Sharma, Founder and Director of Shree Ram Tuitions, and our subject educators supporting learning across Delhi NCR.">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="canonical" href="https://shreeramhometuitions.com/faculty.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Our Faculty | Shree Ram Tuitions">
+  <meta property="og:description" content="Meet our founder and subject educators. Explore teaching support across Delhi NCR.">
+  <meta property="og:url" content="https://shreeramhometuitions.com/faculty.html">
+  <meta property="og:site_name" content="Shree Ram Tuitions">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1220;
+      --surface: #121d2f;
+      --raised: #19263b;
+      --text: #f1f5f9;
+      --muted: #b5c2d5;
+      --border: #2b3b52;
+      --accent: #fdba74;
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 110px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+    button, summary { font: inherit; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { line-height: 1.2; letter-spacing: -.025em; }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      padding: 12px 18px;
+      background: var(--accent);
+      color: #101827;
+      z-index: 100;
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    .topbar {
+      padding: 9px 0;
+      background: #080e19;
+      border-bottom: 1px solid var(--border);
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(11, 18, 32, .97);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 84px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: grid;
+    }
+
+    .brand strong {
+      font-size: 1.2rem;
+      letter-spacing: -.03em;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: .75rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav > a {
+      text-decoration: none;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    .nav > a:hover,
+    .nav > a[aria-current="page"] {
+      color: var(--accent);
+    }
+
+    .enroll { position: relative; }
+
+    .enroll summary {
+      cursor: pointer;
+      list-style: none;
+      background: var(--accent);
+      color: #172033;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 750;
+      font-size: .9rem;
+    }
+
+    .enroll summary::-webkit-details-marker { display: none; }
+
+    .enroll summary::after {
+      content: " ▾";
+      margin-left: 6px;
+    }
+
+    .dropdown {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 12px);
+      width: 240px;
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 18px 50px #0006;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: .9rem;
+    }
+
+    .dropdown a:hover { background: var(--raised); }
+
+    .menu-button {
+      display: none;
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 76px 0 48px;
+      background:
+        radial-gradient(ellipse at 85% 0%, #28406166, transparent 60%);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 750;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); margin-bottom: 22px; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+    h3 { font-size: 1.3rem; }
+
+    .hero p {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .section { padding: 35px 0 65px; }
+
+    .founder {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .founder-photo {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      object-fit: cover;
+      object-position: center top;
+      background: var(--raised);
+    }
+
+    .founder-content { padding: clamp(25px, 4vw, 48px); }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 12px;
+      background: #fdba7415;
+      color: var(--accent);
+      border: 1px solid #fdba7433;
+      border-radius: 999px;
+      font-size: .8rem;
+      font-weight: 650;
+      margin-bottom: 18px;
+    }
+
+    .founder-content h2 { margin-bottom: 8px; }
+
+    .role { color: var(--accent); font-weight: 650; }
+    .muted { color: var(--muted); }
+
+    .facts {
+      margin: 25px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .facts li {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .facts strong { color: var(--text); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #172033;
+      text-decoration: none;
+      font-weight: 750;
+      border: 1px solid transparent;
+      text-align: center;
+    }
+
+    .button:hover { background: #fed7aa; }
+
+    .button-secondary {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .button-secondary:hover { background: var(--raised); }
+
+    .section-heading { max-width: 720px; margin-bottom: 30px; }
+
+    .faculty-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .faculty-card {
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color .2s, transform .2s;
+    }
+
+    .faculty-card:hover {
+      border-color: #fdba7470;
+      transform: translateY(-3px);
+    }
+
+    .subject {
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 750;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .faculty-card h3 { margin-bottom: 20px; }
+
+    .faculty-card dl { margin: 0; }
+
+    .faculty-card dt {
+      color: var(--muted);
+      font-size: .78rem;
+      margin-top: 15px;
+    }
+
+    .faculty-card dd {
+      margin: 3px 0 0;
+      font-weight: 550;
+    }
+
+    .experience {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: var(--raised);
+      color: #dbeafe;
+      font-size: .9rem;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .approach-card {
+      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .approach-number {
+      display: block;
+      color: var(--accent);
+      font-size: .85rem;
+      font-weight: 750;
+      margin-bottom: 15px;
+    }
+
+    .approach-card p { margin-bottom: 0; color: var(--muted); }
+
+    .cta {
+      padding: 40px;
+      background: linear-gradient(120deg, #19283e, #121d2f);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .cta p { max-width: 760px; color: var(--muted); }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 35px 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+    }
+
+    .footer-links a { text-decoration: none; }
+    .footer-links a:hover { color: var(--accent); }
+
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 15;
+      padding: 11px 18px;
+      background: #22c55e;
+      color: #052e16;
+      border-radius: 999px;
+      font-weight: 750;
+      text-decoration: none;
+      box-shadow: 0 8px 25px #0005;
+    }
+
+    @media (max-width: 1000px) {
+      .header-inner { flex-wrap: wrap; padding-block: 15px; }
+      .nav { width: 100%; justify-content: space-between; flex-wrap: wrap; }
+      .faculty-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 700px) {
+      .container { width: calc(100% - 32px); }
+      .hero { padding-top: 45px; }
+      .header-inner { gap: 12px; }
+      .brand strong { font-size: 1.05rem; }
+      .js-enabled .menu-button { display: block; }
+      .js-enabled .nav { display: none; }
+      .js-enabled .nav.is-open { display: flex; }
+      .nav {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding-top: 10px;
+      }
+      .nav > a { padding: 10px 0; }
+      .enroll { margin-top: 10px; }
+      .dropdown {
+        position: static;
+        width: 100%;
+        margin-top: 8px;
+        box-shadow: none;
+      }
+      .founder { grid-template-columns: 1fr; }
+      .founder-photo {
+        min-height: 0;
+        max-height: 560px;
+        aspect-ratio: 3 / 4;
+      }
+      .faculty-grid, .approach-grid { grid-template-columns: 1fr; }
+      .cta { padding: 25px; }
+      .section { padding-bottom: 45px; }
+      footer { padding-bottom: 90px; }
+      .whatsapp { right: 16px; bottom: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .faculty-card { transition: none; }
+      .faculty-card:hover { transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="topbar">
+    <div class="container">
+      <span>Personalised learning across Delhi NCR</span>
+      <a href="tel:+919213723510">Call: +91 9213723510</a>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <strong>Shree Ram Tuitions</strong>
+        <span>Personal attention. Meaningful learning.</span>
+      </a>
+
+      <button class="menu-button" type="button"
+        aria-controls="navigation" aria-expanded="false">
+        Menu ☰
+      </button>
+
+      <nav class="nav" id="navigation" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/about.html">About Us</a>
+        <a href="/services.html">Services</a>
+        <a href="/faculty.html" aria-current="page">Faculty</a>
+        <a href="/home-tuitions.html">Home Tuitions</a>
+        <a href="/contact.html">Contact</a>
+
+        <details class="enroll">
+          <summary>Enroll Now</summary>
+          <div class="dropdown">
+            <a href="/contact.html">Find a Teacher</a>
+            <a href="/contact.html?service=Spoken%20English">
+              Spoken English
+            </a>
+            <a href="/contact.html?service=Music%20Lessons">
+              Music Lessons
+            </a>
+            <a href="/contact.html?service=Shadow%20Teacher%20Support">
+              Shadow Teacher Support
+            </a>
+            <a href="/contact.html#tutor-registration">
+              Join as Teacher
+            </a>
+          </div>
+        </details>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">Meet our educators</span>
+        <h1>The people behind<br>your learning journey.</h1>
+        <p>
+          Explore our founder’s teaching approach and meet the subject
+          educators at Shree Ram Tuitions. Tell us your learning goals,
+          location and preferred schedule to discuss suitable support.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="founder-heading">
+      <div class="container">
+        <article class="founder">
+          <img class="founder-photo"
+            src="/images/sangam-sharma.png"
+            alt="Sangam Sharma, Founder and Director of Shree Ram Tuitions"
+            width="1086" height="1448"
+            fetchpriority="high">
+
+          <div class="founder-content">
+            <span class="badge">Founder &amp; Director</span>
+            <h2 id="founder-heading">Sangam Sharma</h2>
+            <p class="role">Mathematics &amp; Science Educator</p>
+
+            <p class="muted">
+              Sangam leads Shree Ram Tuitions with a focus on individual
+              attention, clear explanations and structured practice.
+              His teaching connects core concepts with step-by-step
+              problem solving to help students approach their studies
+              with greater confidence.
+            </p>
+
+            <ul class="facts">
+              <li>
+                <strong>Teaching experience:</strong> 10+ years
+              </li>
+              <li>
+                <strong>Classes 9–10:</strong> Mathematics &amp; Science
+              </li>
+              <li>
+                <strong>Classes 11–12:</strong> Mathematics &amp; Physics
+              </li>
+              <li>
+                <strong>Technical background:</strong>
+                Software development, programming &amp; AI projects
+              </li>
+              <li>
+                <strong>Teaching focus:</strong>
+                Concept clarity, doubt solving &amp; exam preparation
+              </li>
+            </ul>
+
+            <a class="button" href="/contact.html">
+              Discuss Your Learning Goals →
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faculty-heading">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Subject educators</span>
+          <h2 id="faculty-heading">Meet our faculty.</h2>
+          <p class="muted">
+            Explore each educator’s subject, qualifications and teaching
+            experience. Contact us to discuss classes, schedules and
+            availability in your area.
+          </p>
+        </div>
+
+        <div class="faculty-grid">
+          <article class="faculty-card">
+            <p class="subject">Mathematics</p>
+            <h3>Sachin Sharma</h3>
+            <dl>
+              <dt>Qualification</dt>
+              <dd>M.Sc. Mathematics, B.Ed.</dd>
+              <dt>Teaching experience</dt>
+              <dd><span class="experience">12 years</span></dd>
+            </dl>
+          </article>
+
+          <article class="faculty-card">
+            <p class="subject">Physics</p>
+            <h3>Priya Verma</h3>
+            <dl>
+              <dt>Qualification</dt>
+              <dd>M.Sc. Physics, B.Ed.</dd>
+              <dt>Teaching experience</dt>
+              <dd><span class="experience">8 years</span></dd>
+            </dl>
+          </article>
+
+          <article class="faculty-card">
+            <p class="subject">Chemistry</p>
+            <h3>Rahul Mishra</h3>
+            <dl>
+              <dt>Qualification</dt>
+              <dd>M.Sc. Chemistry, B.Ed.</dd>
+              <dt>Teaching experience</dt>
+              <dd><span class="experience">10 years</span></dd>
+            </dl>
+          </article>
+
+          <article class="faculty-card">
+            <p class="subject">Biology</p>
+            <h3>Neha Gupta</h3>
+            <dl>
+              <dt>Qualification</dt>
+              <dd>M.Sc. Zoology, B.Ed.</dd>
+              <dt>Teaching experience</dt>
+              <dd><span class="experience">7 years</span></dd>
+            </dl>
+          </article>
+
+          <article class="faculty-card">
+            <p class="subject">English</p>
+            <h3>Amit Kumar</h3>
+            <dl>
+              <dt>Qualification</dt>
+              <dd>M.A. English, B.Ed.</dd>
+              <dt>Teaching experience</dt>
+              <dd><span class="experience">15 years</span></dd>
+            </dl>
+          </article>
+
+          <article class="faculty-card">
+            <p class="subject">Hindi</p>
+            <h3>Pooja Singh</h3>
+            <dl>
+              <dt>Qualification</dt>
+              <dd>M.A. Hindi, B.Ed.</dd>
+              <dt>Teaching experience</dt>
+              <dd><span class="experience">9 years</span></dd>
+            </dl>
+          </article>
+
+          <article class="faculty-card">
+            <p class="subject">Computer Science</p>
+            <h3>Vivek Joshi</h3>
+            <dl>
+              <dt>Qualification</dt>
+              <dd>MCA, B.Ed.</dd>
+              <dt>Teaching experience</dt>
+              <dd><span class="experience">6 years</span></dd>
+            </dl>
+          </article>
+
+          <article class="faculty-card">
+            <p class="subject">Social Science</p>
+            <h3>Anjali Mehta</h3>
+            <dl>
+              <dt>Qualification</dt>
+              <dd>M.A. History, B.Ed.</dd>
+              <dt>Teaching experience</dt>
+              <dd><span class="experience">11 years</span></dd>
+            </dl>
+          </article>
+
+          <article class="faculty-card">
+            <p class="subject">Accountancy</p>
+            <h3>Rohan Deshmukh</h3>
+            <dl>
+              <dt>Qualification</dt>
+              <dd>M.Com., B.Ed.</dd>
+              <dt>Teaching experience</dt>
+              <dd><span class="experience">5 years</span></dd>
+            </dl>
+          </article>
+
+          <article class="faculty-card">
+            <p class="subject">Economics</p>
+            <h3>Kavita Nair</h3>
+            <dl>
+              <dt>Qualification</dt>
+              <dd>M.A. Economics, B.Ed.</dd>
+              <dt>Teaching experience</dt>
+              <dd><span class="experience">14 years</span></dd>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="approach-heading">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Our teaching approach</span>
+          <h2 id="approach-heading">Understanding comes first.</h2>
+        </div>
+
+        <div class="approach-grid">
+          <article class="approach-card">
+            <span class="approach-number">01 / UNDERSTAND</span>
+            <h3>Build clear concepts</h3>
+            <p>
+              Break topics into manageable steps and connect new ideas
+              with what the student already understands.
+            </p>
+          </article>
+
+          <article class="approach-card">
+            <span class="approach-number">02 / PRACTISE</span>
+            <h3>Learn through practice</h3>
+            <p>
+              Use guided questions, revision and doubt discussions to
+              strengthen understanding and identify gaps.
+            </p>
+          </article>
+
+          <article class="approach-card">
+            <span class="approach-number">03 / PREPARE</span>
+            <h3>Study with direction</h3>
+            <p>
+              Plan learning around the student’s subjects, current
+              challenges and examination goals.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta">
+          <h2 id="cta-heading">Let’s find support that fits.</h2>
+          <p>
+            We cover Delhi NCR, including Dwarka, Tilak Nagar,
+            Janakpuri, Rohini, Noida, Paschim Vihar and Punjabi Bagh.
+            Share your class, subject, location and preferred timing
+            to discuss teacher availability.
+          </p>
+
+          <div class="actions">
+            <a class="button" href="/contact.html">Find a Teacher →</a>
+            <a class="button button-secondary" href="tel:+919213723510">
+              Call +91 9213723510
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>Shree Ram Tuitions</strong>
+      <p>Home tuition and learning support across Delhi NCR.</p>
+
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/about.html">About Us</a>
+        <a href="/services.html">Services</a>
+        <a href="/faculty.html">Faculty</a>
+        <a href="/home-tuitions.html">Home Tuitions</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+
+      <span>© <span id="year">2026</span> Shree Ram Tuitions.</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp"
+    href="https://wa.me/919213723510?text=Hello%2C%20I%20would%20like%20to%20discuss%20home%20tuition."
+    target="_blank" rel="noopener noreferrer"
+    aria-label="Discuss home tuition on WhatsApp">
+    WhatsApp Us
+  </a>
+
+  <script>
+    document.documentElement.classList.add("js-enabled");
+
+    const menuButton = document.querySelector(".menu-button");
+    const navigation = document.querySelector("#navigation");
+    const enroll = document.querySelector(".enroll");
+
+    function closeMenu() {
+      navigation.classList.remove("is-open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "Menu ☰";
+      enroll.open = false;
+    }
+
+    menuButton.addEventListener("click", () => {
+      const open = navigation.classList.toggle("is-open");
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.textContent = open ? "Close ✕" : "Menu ☰";
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".enroll")) enroll.open = false;
+      if (!event.target.closest(".header")) closeMenu();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        const menuWasOpen = navigation.classList.contains("is-open");
+        const dropdownWasOpen = enroll.open;
+        closeMenu();
+
+        if (menuWasOpen) menuButton.focus();
+        else if (dropdownWasOpen) enroll.querySelector("summary").focus();
+      }
+    });
+
+    navigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 700) closeMenu();
+    });
+
+    document.querySelector("#year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
