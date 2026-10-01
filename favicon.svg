@@ -1,0 +1,56 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="64"
+  height="64"
+  viewBox="0 0 64 64"
+>
+  <title>Shree Ram Tuitions</title>
+
+  <!-- Navy background -->
+  <rect
+    width="64"
+    height="64"
+    rx="16"
+    fill="#0F172A"
+  />
+
+  <!-- Graduation cap -->
+  <path
+    d="M10 22L32 12L54 22L32 32Z"
+    fill="#F59E0B"
+  />
+
+  <path
+    d="M19 28V37C26 43 38 43 45 37V28L32 34Z"
+    fill="#FBBF24"
+  />
+
+  <!-- Tassel -->
+  <path
+    d="M54 22V36"
+    fill="none"
+    stroke="#F59E0B"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+
+  <circle
+    cx="54"
+    cy="39"
+    r="3"
+    fill="#F59E0B"
+  />
+
+  <!-- Open book -->
+  <path
+    d="M15 45C21 43 27 44 32 47C37 44 43 43 49 45V54C43 52 37 53 32 56C27 53 21 52 15 54Z"
+    fill="#F8FAFC"
+  />
+
+  <path
+    d="M32 47V56"
+    fill="none"
+    stroke="#0F172A"
+    stroke-width="2"
+  />
+</svg>

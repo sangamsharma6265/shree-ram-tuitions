@@ -1,23 +1,47 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
-const mongoose = require('mongoose');
+"use strict";
+
+const express = require("express");
+const mongoose = require("mongoose");
+const path = require("path");
+const { createHash, timingSafeEqual } = require("crypto");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// MongoDB Connection URL (Render Environment Variable se connect hoga)
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/shreeramtuitions';
+const PORT = Number(process.env.PORT) || 3000;
+const SITE_URL = "https://shreeramhometuitions.com";
+const PHONE = "+91 9213723510";
 
-// Debug log to check if Render environment variable is being detected
-console.log("Checking MONGO_URI:", process.env.MONGO_URI ? "URI is present" : "URI is MISSING!");
+/* =========================================
+   SERVER CONFIGURATION
+   ========================================= */
 
-mongoose.connect(MONGO_URI)
-    .then(() => console.log('Connected to MongoDB Atlas successfully!'))
-    .catch(err => console.error('MongoDB connection error:', err));
+mongoose.set("bufferCommands", false);
 
-// Define Schemas and Models for Persistent Storage
-const tutorSchema = new mongoose.Schema({
+app.disable("x-powered-by");
+
+app.use(
+  express.urlencoded({
+    extended: false,
+    limit: "16kb",
+    parameterLimit: 30
+  })
+);
+
+app.use((req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  next();
+});
+
+/* =========================================
+   DATABASE MODELS
+
+   Original model names are retained so
+   existing records remain available.
+   ========================================= */
+
+const tutorSchema = new mongoose.Schema(
+  {
     id: Number,
     name: String,
     email: String,
@@ -25,234 +49,1058 @@ const tutorSchema = new mongoose.Schema({
     subjects: String,
     experience: String,
     location: String,
-    date: String
-});
+    date: String,
+    teacherType: String,
+    qualification: String,
+    preferredTimings: String,
+    message: String
+  },
+  {
+    timestamps: true
+  }
+);
 
-const parentSchema = new mongoose.Schema({
+const parentSchema = new mongoose.Schema(
+  {
     id: Number,
     name: String,
     email: String,
     phone: String,
     requirement: String,
     message: String,
-    date: String
+    date: String,
+    service: String,
+    location: String,
+    preferredTimings: String
+  },
+  {
+    timestamps: true
+  }
+);
+
+const Tutor = mongoose.model("Tutor", tutorSchema);
+const Parent = mongoose.model("Parent", parentSchema);
+
+/* =========================================
+   ACCEPTED FORM OPTIONS
+   ========================================= */
+
+const SERVICES = [
+  "Primary School Tuition",
+  "Middle School Tuition",
+  "High School Tuition",
+  "Mathematics",
+  "Science",
+  "English",
+  "Computer Science",
+  "Spoken English",
+  "Music Lessons",
+  "Shadow Teacher Support",
+  "Other Learning Requirement"
+];
+
+const TEACHER_TYPES = [
+  "School Tutor",
+  "Spoken English Trainer",
+  "Music Teacher",
+  "Shadow Teacher",
+  "Multiple Specialisations"
+];
+
+/* =========================================
+   HTML HELPERS
+   ========================================= */
+
+function escapeHtml(value) {
+  const replacements = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  };
+
+  return String(value ?? "").replace(
+    /[&<>"']/g,
+    (character) => replacements[character]
+  );
+}
+
+function display(value) {
+  if (value === undefined || value === null || value === "") {
+    return "—";
+  }
+
+  return escapeHtml(value);
+}
+
+function recordDate(record) {
+  if (record.createdAt) {
+    return new Date(record.createdAt).toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata"
+    });
+  }
+
+  return record.date || "—";
+}
+
+/* =========================================
+   PUBLIC WEBSITE FILES
+
+   Only these files are publicly served.
+   server.js, package.json and saved data
+   are not exposed.
+   ========================================= */
+
+const publicFiles = [
+  "about.html",
+  "services.html",
+  "contact.html",
+  "style.css",
+  "script.js",
+  "favicon.svg",
+  "google49939a4e776229a4.html"
+];
+
+for (const file of publicFiles) {
+  app.get("/" + file, (req, res) => {
+    res.sendFile(path.join(__dirname, file));
+  });
+}
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
-const Tutor = mongoose.model('Tutor', tutorSchema);
-const Parent = mongoose.model('Parent', parentSchema);
+app.get("/index.html", (req, res) => {
+  const query = new URL(req.originalUrl, SITE_URL).search;
 
-// Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname)));
+  res.redirect(301, "/" + query);
+});
 
-// Admin Authentication Middleware
-const adminAuth = (req, res, next) => {
-    const authHeader = req.headers.authorization;
-    
-    if (authHeader) {
-        const token = authHeader.split(' ')[1];
-        const [username, password] = Buffer.from(token, 'base64').toString().split(':');
-        
-        if (username === 'admin' && password === 'shreeram123') {
-            return next(); 
-        }
+/* =========================================
+   ROBOTS.TXT AND SITEMAP
+
+   These are generated by the server.
+   Separate files are not required.
+   ========================================= */
+
+app.get("/robots.txt", (req, res) => {
+  const robots = [
+    "User-agent: *",
+    "Allow: /",
+    "Disallow: /admin",
+    "Disallow: /register-tutor",
+    "Disallow: /contact$",
+    `Sitemap: ${SITE_URL}/sitemap.xml`,
+    ""
+  ].join("\n");
+
+  res.type("text/plain").send(robots);
+});
+
+app.get("/sitemap.xml", (req, res) => {
+  const pages = [
+    "/",
+    "/about.html",
+    "/services.html",
+    "/contact.html"
+  ];
+
+  const urls = pages
+    .map((page) => {
+      return `  <url><loc>${SITE_URL}${page}</loc></url>`;
+    })
+    .join("\n");
+
+  const sitemap =
+    '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    urls +
+    "\n</urlset>";
+
+  res.type("application/xml").send(sitemap);
+});
+
+/* =========================================
+   FORM RESPONSES
+
+   JavaScript submissions receive JSON.
+   Standard HTML submissions receive
+   a readable confirmation/error page.
+   ========================================= */
+
+function reply(req, res, status, message) {
+  res.setHeader("Cache-Control", "no-store");
+  res.setHeader("X-Robots-Tag", "noindex, nofollow");
+
+  if (req.accepts(["html", "json"]) === "json") {
+    return res.status(status).json({ message });
+  }
+
+  return res.status(status).send(`
+    <!DOCTYPE html>
+    <html lang="en-IN">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="robots" content="noindex, nofollow">
+
+      <title>Submission | Shree Ram Tuitions</title>
+
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+      <link rel="stylesheet" href="/style.css">
+    </head>
+
+    <body>
+      <main class="section">
+        <div class="container">
+          <div class="form-panel tutor-panel">
+            <span class="eyebrow">Shree Ram Tuitions</span>
+
+            <h1>
+              ${
+                status < 400
+                  ? "Thank you!"
+                  : "Please check your submission"
+              }
+            </h1>
+
+            <p>${escapeHtml(message)}</p>
+
+            <div class="button-group">
+              <a class="btn" href="/contact.html">
+                Contact page
+              </a>
+
+              <a class="btn btn-secondary" href="/">
+                Home
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </body>
+    </html>
+  `);
+}
+
+/* =========================================
+   SERVER-SIDE FORM VALIDATION
+   ========================================= */
+
+function validateSubmission(req, res, next) {
+  const teacher = req.path === "/register-tutor";
+
+  const limits = teacher
+    ? {
+        name: 100,
+        email: 254,
+        phone: 20,
+        teacherType: 200,
+        subjects: 200,
+        experience: 10,
+        qualification: 200,
+        location: 200,
+        preferredTimings: 200,
+        message: 2000
+      }
+    : {
+        name: 100,
+        email: 254,
+        phone: 20,
+        service: 200,
+        location: 200,
+        requirement: 200,
+        preferredTimings: 200,
+        message: 2000
+      };
+
+  const required = teacher
+    ? [
+        "name",
+        "email",
+        "phone",
+        "teacherType",
+        "subjects",
+        "experience",
+        "location"
+      ]
+    : [
+        "name",
+        "phone",
+        "service",
+        "location",
+        "requirement"
+      ];
+
+  const input = {};
+
+  for (const [field, limit] of Object.entries(limits)) {
+    const value = req.body?.[field];
+
+    if (
+      value !== undefined &&
+      (
+        typeof value !== "string" ||
+        value.length > limit
+      )
+    ) {
+      return reply(
+        req,
+        res,
+        400,
+        "Please enter valid details within the field limits."
+      );
     }
-    
-    res.setHeader('WWW-Authenticate', 'Basic realm="Admin Area"');
-    res.status(401).send('Authentication required. Access denied!');
+
+    input[field] = (value || "").trim();
+  }
+
+  if (
+    required.some((field) => !input[field]) ||
+    input.name.length < 2
+  ) {
+    return reply(
+      req,
+      res,
+      400,
+      "Please complete all required fields. Names must contain at least two characters."
+    );
+  }
+
+  const indianMobile =
+    /^(?:\+91[ -]?|91[ -]?|0)?[6-9](?:[ -]?[0-9]){9}$/;
+
+  if (!indianMobile.test(input.phone)) {
+    return reply(
+      req,
+      res,
+      400,
+      "Please enter a valid 10-digit Indian mobile number, optionally with +91."
+    );
+  }
+
+  if (
+    input.email &&
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.email)
+  ) {
+    return reply(
+      req,
+      res,
+      400,
+      "Please enter a valid email address."
+    );
+  }
+
+  if (teacher) {
+    const years = Number(input.experience);
+
+    if (!TEACHER_TYPES.includes(input.teacherType)) {
+      return reply(
+        req,
+        res,
+        400,
+        "Please select a valid teacher category."
+      );
+    }
+
+    if (
+      !Number.isFinite(years) ||
+      years < 0 ||
+      years > 80 ||
+      years % 0.5 !== 0
+    ) {
+      return reply(
+        req,
+        res,
+        400,
+        "Experience must be between 0 and 80 years, in half-year increments."
+      );
+    }
+
+    input.experience = String(years);
+  } else if (!SERVICES.includes(input.service)) {
+    return reply(
+      req,
+      res,
+      400,
+      "Please select a valid learning service."
+    );
+  }
+
+  if (mongoose.connection.readyState !== 1) {
+    return reply(
+      req,
+      res,
+      503,
+      `Online submissions are temporarily unavailable. Please try again later or call ${PHONE}.`
+    );
+  }
+
+  req.validatedInput = input;
+
+  next();
+}
+
+/* =========================================
+   SAVE ENQUIRIES AND REGISTRATIONS
+   ========================================= */
+
+function saveSubmission(Model, successMessage) {
+  return async (req, res) => {
+    try {
+      const now = new Date();
+
+      await Model.create({
+        ...req.validatedInput,
+
+        id: now.getTime(),
+
+        date: now.toLocaleString("en-IN", {
+          timeZone: "Asia/Kolkata"
+        })
+      });
+
+      return reply(req, res, 201, successMessage);
+    } catch {
+      console.error(
+        "Submission could not be confirmed. Check database availability."
+      );
+
+      return reply(
+        req,
+        res,
+        500,
+        `We could not confirm your submission. Please contact us on ${PHONE} before sending it again.`
+      );
+    }
+  };
+}
+
+app.post(
+  "/contact",
+  validateSubmission,
+  saveSubmission(
+    Parent,
+    "Thank you! Your learning enquiry has been received. We will contact you to discuss your requirements."
+  )
+);
+
+app.post(
+  "/register-tutor",
+  validateSubmission,
+  saveSubmission(
+    Tutor,
+    "Thank you! Your teacher registration has been received for review."
+  )
+);
+
+/* =========================================
+   ADMIN AUTHENTICATION
+
+   Credentials come from environment
+   variables, not from the source code.
+   ========================================= */
+
+function secureEqual(actual, expected) {
+  const hash = (value) => {
+    return createHash("sha256").update(value).digest();
+  };
+
+  return timingSafeEqual(hash(actual), hash(expected));
+}
+
+function adminAuth(req, res, next) {
+  res.setHeader("Cache-Control", "no-store");
+  res.setHeader("X-Robots-Tag", "noindex, nofollow");
+
+  const username = process.env.ADMIN_USERNAME;
+  const password = process.env.ADMIN_PASSWORD;
+
+  if (!username || !password) {
+    return res.status(503).send(
+      "Admin access is not configured. Set ADMIN_USERNAME and ADMIN_PASSWORD on the server."
+    );
+  }
+
+  const header = req.headers.authorization || "";
+
+  if (/^Basic /i.test(header)) {
+    const decoded = Buffer.from(
+      header.slice(6),
+      "base64"
+    ).toString("utf8");
+
+    const separator = decoded.indexOf(":");
+
+    if (separator > 0) {
+      const correctUsername = secureEqual(
+        decoded.slice(0, separator),
+        username
+      );
+
+      const correctPassword = secureEqual(
+        decoded.slice(separator + 1),
+        password
+      );
+
+      if (correctUsername && correctPassword) {
+        return next();
+      }
+    }
+  }
+
+  res.setHeader(
+    "WWW-Authenticate",
+    'Basic realm="Shree Ram Tuitions Admin", charset="UTF-8"'
+  );
+
+  return res.status(401).send(
+    "Administrator authentication required."
+  );
+}
+
+/* =========================================
+   ADMIN TABLE ROWS
+   ========================================= */
+
+function renderRows(records, teacher) {
+  if (!records.length) {
+    return `
+      <tr>
+        <td colspan="7">No matching records found.</td>
+      </tr>
+    `;
+  }
+
+  return records
+    .map((record) => {
+      const email =
+        record.email && record.email !== "N/A"
+          ? `<div>${display(record.email)}</div>`
+          : "";
+
+      const contact = `
+        <strong>${display(record.name)}</strong>
+        <div>${display(record.phone)}</div>
+        ${email}
+      `;
+
+      if (teacher) {
+        return `
+          <tr>
+            <td>${contact}</td>
+
+            <td>
+              ${display(record.teacherType || "School Tutor")}
+            </td>
+
+            <td>${display(record.subjects)}</td>
+
+            <td>
+              ${display(record.experience)} years
+              <div>${display(record.qualification)}</div>
+            </td>
+
+            <td>${display(record.location)}</td>
+
+            <td>
+              ${display(record.preferredTimings)}
+              <div class="message">${display(record.message)}</div>
+            </td>
+
+            <td>${display(recordDate(record))}</td>
+          </tr>
+        `;
+      }
+
+      return `
+        <tr>
+          <td>${contact}</td>
+
+          <td>
+            ${display(record.service || "School Tuition")}
+          </td>
+
+          <td>${display(record.requirement)}</td>
+          <td>${display(record.location)}</td>
+          <td>${display(record.preferredTimings)}</td>
+          <td class="message">${display(record.message)}</td>
+          <td>${display(recordDate(record))}</td>
+        </tr>
+      `;
+    })
+    .join("");
+}
+
+/* =========================================
+   ADMIN DASHBOARD
+
+   Features:
+   - Separate enquiry and teacher views
+   - Record counts
+   - Search
+   - Latest records first
+   - 25 records per page
+   - Mobile table scrolling
+   ========================================= */
+
+app.get("/admin", adminAuth, async (req, res) => {
+  if (mongoose.connection.readyState !== 1) {
+    return res.status(503).send(
+      "Database unavailable. Please try again later."
+    );
+  }
+
+  const teacher = req.query.view === "teachers";
+  const view = teacher ? "teachers" : "enquiries";
+
+  const search =
+    typeof req.query.q === "string"
+      ? req.query.q.trim().slice(0, 100)
+      : "";
+
+  const requestedPage =
+    typeof req.query.page === "string" &&
+    /^\d{1,6}$/.test(req.query.page)
+      ? Math.max(1, Number(req.query.page))
+      : 1;
+
+  const Model = teacher ? Tutor : Parent;
+
+  const fields = teacher
+    ? [
+        "name",
+        "email",
+        "phone",
+        "teacherType",
+        "subjects",
+        "location"
+      ]
+    : [
+        "name",
+        "email",
+        "phone",
+        "service",
+        "requirement",
+        "location"
+      ];
+
+  // Treat search input as literal text, not a regular expression.
+  const literalSearch = search.replace(
+    /[.*+?^${}()|[\]\\]/g,
+    "\\$&"
+  );
+
+  const filter = search
+    ? {
+        $or: fields.map((field) => ({
+          [field]: {
+            $regex: literalSearch,
+            $options: "i"
+          }
+        }))
+      }
+    : {};
+
+  try {
+    const [
+      enquiryCount,
+      teacherCount,
+      matches
+    ] = await Promise.all([
+      Parent.countDocuments({}).maxTimeMS(8000),
+      Tutor.countDocuments({}).maxTimeMS(8000),
+      Model.countDocuments(filter).maxTimeMS(8000)
+    ]);
+
+    const pageSize = 25;
+    const pages = Math.max(1, Math.ceil(matches / pageSize));
+    const page = Math.min(requestedPage, pages);
+
+    const records = await Model.find(filter)
+      .sort({ id: -1, _id: -1 })
+      .skip((page - 1) * pageSize)
+      .limit(pageSize)
+      .maxTimeMS(8000)
+      .lean();
+
+    function paginationUrl(target) {
+      const params = new URLSearchParams({
+        view,
+        q: search,
+        page: String(target)
+      });
+
+      return "/admin?" + params.toString();
+    }
+
+    const headings = teacher
+      ? [
+          "Teacher / Contact",
+          "Category",
+          "Specialisation",
+          "Experience / Qualifications",
+          "Localities",
+          "Availability / Notes",
+          "Registered"
+        ]
+      : [
+          "Learner / Contact",
+          "Service",
+          "Requirement",
+          "Locality",
+          "Preferred Timings",
+          "Message",
+          "Received"
+        ];
+
+    res.send(`
+      <!DOCTYPE html>
+      <html lang="en-IN">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex, nofollow">
+
+        <title>Admin | Shree Ram Tuitions</title>
+
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="/style.css">
+
+        <style>
+          body {
+            background: #f8fafc;
+          }
+
+          .admin-wrap {
+            max-width: 1400px;
+            margin: auto;
+            padding: 32px 20px;
+          }
+
+          .admin-heading,
+          .admin-tabs,
+          .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+          }
+
+          .admin-heading {
+            margin-bottom: 28px;
+          }
+
+          .admin-tabs {
+            justify-content: flex-start;
+            margin: 24px 0;
+          }
+
+          .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+          }
+
+          .admin-stats strong {
+            display: block;
+            font-size: 2rem;
+            color: #13243a;
+          }
+
+          .admin-search {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: end;
+            margin: 24px 0;
+          }
+
+          .admin-search .form-field {
+            flex: 1;
+            min-width: 200px;
+          }
+
+          .table-scroll {
+            overflow-x: auto;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+          }
+
+          table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 1100px;
+            font-size: 0.85rem;
+          }
+
+          th,
+          td {
+            padding: 16px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid #e2e8f0;
+          }
+
+          th {
+            background: #13243a;
+            color: #fff;
+          }
+
+          td {
+            max-width: 280px;
+            overflow-wrap: anywhere;
+          }
+
+          .message {
+            white-space: pre-wrap;
+          }
+
+          .pagination {
+            margin-top: 24px;
+          }
+
+          @media (max-width: 480px) {
+            .admin-stats {
+              grid-template-columns: 1fr;
+            }
+          }
+        </style>
+      </head>
+
+      <body>
+        <main class="admin-wrap">
+          <div class="admin-heading">
+            <div>
+              <span class="eyebrow">Shree Ram Tuitions</span>
+              <h1>Admin Dashboard</h1>
+            </div>
+
+            <a class="btn btn-secondary" href="/">
+              Website
+            </a>
+          </div>
+
+          <div class="admin-stats">
+            <div class="card">
+              Learning enquiries
+              <strong>${enquiryCount}</strong>
+            </div>
+
+            <div class="card">
+              Teacher registrations
+              <strong>${teacherCount}</strong>
+            </div>
+          </div>
+
+          <nav class="admin-tabs" aria-label="Record type">
+            <a
+              class="btn ${teacher ? "btn-secondary" : ""}"
+              href="/admin?view=enquiries"
+              ${teacher ? "" : 'aria-current="page"'}
+            >
+              Learning Enquiries
+            </a>
+
+            <a
+              class="btn ${teacher ? "" : "btn-secondary"}"
+              href="/admin?view=teachers"
+              ${teacher ? 'aria-current="page"' : ""}
+            >
+              Teacher Registrations
+            </a>
+          </nav>
+
+          <form
+            class="admin-search"
+            method="get"
+            action="/admin"
+          >
+            <input type="hidden" name="view" value="${view}">
+
+            <div class="form-field">
+              <label for="search">
+                Search names, contact details, services or localities
+              </label>
+
+              <input
+                id="search"
+                name="q"
+                value="${escapeHtml(search)}"
+                maxlength="100"
+                type="search"
+              >
+            </div>
+
+            <button class="btn" type="submit">
+              Search
+            </button>
+
+            <a
+              class="btn btn-secondary"
+              href="/admin?view=${view}"
+            >
+              Clear
+            </a>
+          </form>
+
+          <p>
+            ${matches} matching record${matches === 1 ? "" : "s"}
+            · Latest first
+            · New record dates use India Standard Time
+          </p>
+
+          <div
+            class="table-scroll"
+            role="region"
+            aria-label="${
+              teacher
+                ? "Teacher registrations"
+                : "Learning enquiries"
+            }"
+            tabindex="0"
+          >
+            <table>
+              <thead>
+                <tr>
+                  ${headings
+                    .map((title) => {
+                      return `<th scope="col">${title}</th>`;
+                    })
+                    .join("")}
+                </tr>
+              </thead>
+
+              <tbody>
+                ${renderRows(records, teacher)}
+              </tbody>
+            </table>
+          </div>
+
+          <nav class="pagination" aria-label="Pagination">
+            <span>Page ${page} of ${pages}</span>
+
+            <div class="button-group">
+              ${
+                page > 1
+                  ? `
+                    <a
+                      class="btn btn-secondary"
+                      href="${escapeHtml(paginationUrl(page - 1))}"
+                    >
+                      Previous
+                    </a>
+                  `
+                  : ""
+              }
+
+              ${
+                page < pages
+                  ? `
+                    <a
+                      class="btn btn-secondary"
+                      href="${escapeHtml(paginationUrl(page + 1))}"
+                    >
+                      Next
+                    </a>
+                  `
+                  : ""
+              }
+            </div>
+          </nav>
+        </main>
+      </body>
+      </html>
+    `);
+  } catch {
+    console.error("Admin records could not be loaded.");
+
+    res.status(503).send(
+      "Unable to load records right now. Please try again later."
+    );
+  }
+});
+
+/* =========================================
+   NOT FOUND AND ERROR HANDLING
+   ========================================= */
+
+app.use((req, res) => {
+  reply(
+    req,
+    res,
+    404,
+    "This page could not be found. Please return to the home or contact page."
+  );
+});
+
+app.use((error, req, res, next) => {
+  if (res.headersSent) {
+    return next(error);
+  }
+
+  const status =
+    error.status === 413
+      ? 413
+      : error.status === 400
+        ? 400
+        : error.status === 404
+          ? 404
+          : 500;
+
+  const message =
+    status === 413
+      ? "Your submission is too large. Please shorten it."
+      : status === 400
+        ? "Invalid submission. Please check your details."
+        : status === 404
+          ? "The requested file could not be found."
+          : "Something went wrong. Please try again later.";
+
+  reply(req, res, status, message);
+});
+
+/* =========================================
+   DATABASE CONNECTION AND STARTUP
+   ========================================= */
+
+function connectDatabase() {
+  const uri =
+    process.env.MONGO_URI ||
+    "mongodb://127.0.0.1:27017/shreeramtuitions";
+
+  mongoose
+    .connect(uri, {
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 10000
+    })
+    .then(() => {
+      console.log("MongoDB connected.");
+    })
+    .catch(() => {
+      console.error(
+        "MongoDB unavailable. Check MONGO_URI and database access. Retrying in 15 seconds."
+      );
+
+      setTimeout(connectDatabase, 15000).unref();
+    });
+}
+
+if (require.main === module) {
+  connectDatabase();
+
+  app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}.`);
+  });
+}
+
+module.exports = {
+  app,
+  Tutor,
+  Parent,
+  escapeHtml
 };
-
-// Google Search Console Verification Route
-app.get('/google49939a4e776229a4.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'google49939a4e776229a4.html'));
-});
-
-// Sitemap Route
-app.get('/sitemap.xml', (req, res) => {
-    res.sendFile(path.join(__dirname, 'sitemap.xml'));
-});
-
-// Serve Main Pages
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
-
-app.get('/about.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'about.html'));
-});
-
-app.get('/services.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'services.html'));
-});
-
-app.get('/contact.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'contact.html'));
-});
-
-// Handle Tutor Registration & Save to MongoDB
-app.post('/register-tutor', async (req, res) => {
-    try {
-        const newTutor = new Tutor({
-            id: Date.now(),
-            name: req.body.name,
-            email: req.body.email,
-            phone: req.body.phone,
-            subjects: req.body.subjects,
-            experience: req.body.experience,
-            location: req.body.location,
-            date: new Date().toLocaleString()
-        });
-
-        await newTutor.save();
-
-        res.send(`
-            <body style="font-family: Arial; text-align: center; padding-top: 50px; background: #f8fafc;">
-                <h1 style="color: #16a34a;">Registration Successful! 🎉</h1>
-                <p>Thank you <b>${newTutor.name}</b>. Your details have been securely saved to Shree Ram Tuitions records.</p>
-                <br>
-                <a href="/" style="background: #4f46e5; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-right: 10px;">Go Back Home</a>
-                <a href="/admin" style="background: #0284c7; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">View Admin Dashboard</a>
-            </body>
-        `);
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("Error saving data.");
-    }
-});
-
-// Handle Parent/Contact Form Submission & Save to MongoDB
-app.post('/contact', async (req, res) => {
-    try {
-        const newSubmission = new Parent({
-            id: Date.now(),
-            name: req.body.name,
-            email: req.body.email || 'N/A',
-            phone: req.body.phone,
-            requirement: req.body.requirement || 'N/A',
-            message: req.body.message || 'N/A',
-            date: new Date().toLocaleString()
-        });
-
-        await newSubmission.save();
-
-        res.send(`
-            <body style="font-family: Arial; text-align: center; padding-top: 50px; background: #f8fafc;">
-                <h1 style="color: #16a34a;">Request Submitted Successfully! 🎉</h1>
-                <p>Thank you <b>${newSubmission.name}</b>. We have received your requirement and will contact you soon.</p>
-                <br>
-                <a href="/" style="background: #4f46e5; color: white; padding: 10px 20px; text-decoration: none; border-radius: 50px;">Go Back Home</a>
-            </body>
-        `);
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("Error saving data.");
-    }
-});
-
-// Admin Dashboard Route (Tutors & Parents)
-app.get('/admin', adminAuth, async (req, res) => {
-    try {
-        const tutors = await Tutor.find({});
-        const parents = await Parent.find({});
-
-        let tutorRows = '';
-        if (tutors.length === 0) {
-            tutorRows = `<tr><td colspan="7" style="text-align: center; padding: 20px; color: #64748b;">No tutor registrations found yet.</td></tr>`;
-        } else {
-            tutors.forEach((tutor, index) => {
-                tutorRows += `
-                    <tr style="border-bottom: 1px solid #e2e8f0;">
-                        <td style="padding: 12px; text-align: center;">${index + 1}</td>
-                        <td style="padding: 12px; font-weight: bold; color: #1e293b;">${tutor.name}</td>
-                        <td style="padding: 12px; color: #475569;">${tutor.email}</td>
-                        <td style="padding: 12px; color: #475569;">${tutor.phone}</td>
-                        <td style="padding: 12px; color: #475569;">${tutor.subjects}</td>
-                        <td style="padding: 12px; text-align: center; color: #475569;">${tutor.experience} Years</td>
-                        <td style="padding: 12px; color: #475569;">${tutor.location}</td>
-                    </tr>
-                `;
-            });
-        }
-
-        let parentRows = '';
-        if (parents.length === 0) {
-            parentRows = `<tr><td colspan="6" style="text-align: center; padding: 20px; color: #64748b;">No parent inquiries found yet.</td></tr>`;
-        } else {
-            parents.forEach((parent, index) => {
-                parentRows += `
-                    <tr style="border-bottom: 1px solid #e2e8f0;">
-                        <td style="padding: 12px; text-align: center;">${index + 1}</td>
-                        <td style="padding: 12px; font-weight: bold; color: #1e293b;">${parent.name}</td>
-                        <td style="padding: 12px; color: #475569;">${parent.phone}</td>
-                        <td style="padding: 12px; color: #475569;">${parent.requirement}</td>
-                        <td style="padding: 12px; color: #475569;">${parent.message}</td>
-                        <td style="padding: 12px; color: #475569; font-size: 13px;">${parent.date}</td>
-                    </tr>
-                `;
-            });
-        }
-
-        res.send(`
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <title>Admin Dashboard - Shree Ram Tuitions</title>
-            </head>
-            <body style="font-family: Arial, sans-serif; background: #f8fafc; margin: 0; padding: 30px;">
-                <div style="max-width: 1100px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
-                        <h2 style="color: #1e293b; margin: 0;">Admin Dashboard 📊</h2>
-                        <a href="/" style="background: #4f46e5; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-size: 14px;">+ Home Page</a>
-                    </div>
-
-                    <!-- Parents Section -->
-                    <h3 style="color: #ea580c; border-bottom: 2px solid #fdba74; padding-bottom: 8px; margin-top: 20px;">Parent Inquiries / Demo Requests 👨‍👩‍👦</h3>
-                    <table style="width: 100%; border-collapse: collapse; text-align: left; margin-bottom: 40px;">
-                        <thead>
-                            <tr style="background: #fff7ed; color: #9a3412; border-bottom: 2px solid #fed7aa;">
-                                <th style="padding: 12px; text-align: center;">#</th>
-                                <th style="padding: 12px;">Name</th>
-                                <th style="padding: 12px;">Phone</th>
-                                <th style="padding: 12px;">Class / Requirement</th>
-                                <th style="padding: 12px;">Message</th>
-                                <th style="padding: 12px;">Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${parentRows}
-                        </tbody>
-                    </table>
-
-                    <!-- Tutors Section -->
-                    <h3 style="color: #1e40af; border-bottom: 2px solid #93c5fd; padding-bottom: 8px;">Registered Tutors 👨‍🏫</h3>
-                    <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                        <thead>
-                            <tr style="background: #f1f5f9; color: #334155; border-bottom: 2px solid #cbd5e1;">
-                                <th style="padding: 12px; text-align: center;">#</th>
-                                <th style="padding: 12px;">Name</th>
-                                <th style="padding: 12px;">Email</th>
-                                <th style="padding: 12px;">Phone</th>
-                                <th style="padding: 12px;">Subjects</th>
-                                <th style="padding: 12px; text-align: center;">Experience</th>
-                                <th style="padding: 12px;">Location</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${tutorRows}
-                        </tbody>
-                    </table>
-                </div>
-            </body>
-            </html>
-        `);
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("Error loading dashboard data.");
-    }
-});
-
-// Start Server
-app.listen(PORT, () => {
-    console.log(`Server is running live at http://localhost:${PORT}`);
-});

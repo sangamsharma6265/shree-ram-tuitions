@@ -1,176 +1,904 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us & Tutor Registration - Shree Ram Tuitions</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for WhatsApp & Call Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body { font-family: 'Poppins', sans-serif; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Contact &amp; Teacher Registration | Shree Ram Tuitions</title>
+
+  <meta
+    name="description"
+    content="Enquire about home tuition, spoken English, music lessons or shadow teachers in Delhi NCR. Contact Shree Ram Tuitions or register as a teacher."
+  >
+
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#13243a">
+
+  <link
+    rel="canonical"
+    href="https://shreeramhometuitions.com/contact.html"
+  >
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:site_name" content="Shree Ram Tuitions">
+  <meta
+    property="og:url"
+    content="https://shreeramhometuitions.com/contact.html"
+  >
+  <meta
+    property="og:title"
+    content="Find a Teacher or Join Our Network | Shree Ram Tuitions"
+  >
+  <meta
+    property="og:description"
+    content="Discuss your learning requirements in Delhi NCR or register as a school tutor, English trainer, music teacher or shadow teacher."
+  >
+  <meta
+    property="og:image"
+    content="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80"
+  >
+  <meta property="og:image:alt" content="Students learning together">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta
+    name="twitter:title"
+    content="Contact Shree Ram Tuitions | Delhi NCR"
+  >
+  <meta
+    name="twitter:description"
+    content="Send a learning enquiry or register your teaching profile with Shree Ram Tuitions."
+  >
+  <meta
+    name="twitter:image"
+    content="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80"
+  >
+
+  <!-- Fonts and shared assets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700;750;800&amp;display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://shreeramhometuitions.com/#organization",
+        "name": "Shree Ram Tuitions",
+        "url": "https://shreeramhometuitions.com/",
+        "logo": "https://shreeramhometuitions.com/favicon.svg",
+        "telephone": "+919213723510",
+        "email": "sangamsharma6265@gmail.com",
+        "areaServed": {
+          "@type": "Place",
+          "name": "Delhi NCR"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+919213723510",
+          "email": "sangamsharma6265@gmail.com",
+          "contactType": "customer enquiries"
+        }
+      },
+      {
+        "@type": "ContactPage",
+        "@id": "https://shreeramhometuitions.com/contact.html#webpage",
+        "url": "https://shreeramhometuitions.com/contact.html",
+        "name": "Contact & Teacher Registration | Shree Ram Tuitions",
+        "description": "Send an enquiry for learning services in Delhi NCR or register as a teacher.",
+        "inLanguage": "en-IN",
+        "about": {
+          "@id": "https://shreeramhometuitions.com/#organization"
+        },
+        "breadcrumb": {
+          "@id": "https://shreeramhometuitions.com/contact.html#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://shreeramhometuitions.com/contact.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://shreeramhometuitions.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contact",
+            "item": "https://shreeramhometuitions.com/contact.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
-<body class="bg-slate-950 text-slate-100 selection:bg-orange-500 selection:text-white">
 
-    <!-- Header / Navbar -->
-    <header class="bg-slate-900/90 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="text-xl font-bold text-orange-500 leading-tight">
-                Shree Ram <span class="text-slate-100 block text-xs md:inline md:text-xl font-medium">Tuitions</span>
-            </div>
-            <div class="flex items-center space-x-3">
-                <nav class="hidden md:flex space-x-6 font-medium text-sm text-slate-300">
-                    <a href="index.html" class="hover:text-orange-400 transition">Home</a>
-                    <a href="about.html" class="hover:text-orange-400 transition">About</a>
-                    <a href="services.html" class="hover:text-orange-400 transition">Courses</a>
-                    <a href="contact.html" class="text-orange-400 font-semibold">Contact</a>
-                </nav>
-                <a href="#tutor-register" class="bg-blue-600 text-white text-xs md:text-sm px-4 py-2 rounded-full font-medium shadow hover:bg-blue-700 transition shrink-0">Register as Tutor</a>
-            </div>
-        </div>
-    </header>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <!-- Contact Hero Section (With Background Image) -->
-    <section class="relative w-full py-20 md:py-28 text-center overflow-hidden bg-cover bg-center border-b border-slate-800" style="background-image: linear-gradient(to bottom, rgba(10, 11, 15, 0.75), rgba(10, 11, 15, 0.90)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920&q=80');">
-        <div class="relative z-10 max-w-4xl mx-auto px-4">
-            <span class="bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs md:text-sm font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider inline-block backdrop-blur-sm">Get In Touch</span>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white mt-6 tracking-tight leading-tight drop-shadow-md">
-                Book a Free Demo or <span class="text-orange-500">Join as a Tutor</span>
-            </h1>
-            <p class="mt-4 text-slate-200 text-base md:text-lg max-w-2xl mx-auto font-normal leading-relaxed drop-shadow">
-                Looking for an expert home tutor or want to register as a teacher? Reach out through our contact details or fill out the respective forms below.
-            </p>
-        </div>
-    </section>
-
-    <!-- Contact Info & Student Inquiry Form -->
-    <section class="max-w-7xl mx-auto px-4 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-slate-900/80 rounded-3xl shadow-xl overflow-hidden border border-slate-800 p-8 md:p-12">
-            
-            <!-- Contact Details -->
-            <div>
-                <h2 class="text-2xl font-bold text-white mb-6">Contact Information</h2>
-                <p class="text-slate-300 mb-8 text-sm md:text-base leading-relaxed">We provide home tutors across all localities. Reach out to us through any of the channels below.</p>
-                
-                <div class="space-y-6">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-orange-500/10 text-orange-400 rounded-xl flex items-center justify-center font-bold text-xl shrink-0">📞</div>
-                        <div>
-                            <h3 class="font-bold text-white">Call Us</h3>
-                            <a href="tel:+919213723510" class="text-slate-300 hover:text-orange-400 transition text-sm md:text-base">+91 9213723510</a>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-orange-500/10 text-orange-400 rounded-xl flex items-center justify-center font-bold text-xl shrink-0">💬</div>
-                        <div>
-                            <h3 class="font-bold text-white">WhatsApp</h3>
-                            <a href="https://wa.me/919213723510?text=Hi,%20I%20want%20to%20inquire%20about%20Home%20Tuitions." target="_blank" class="text-slate-300 hover:text-orange-400 transition underline text-sm md:text-base">
-                                +91 9213723510 (Quick Response)
-                            </a>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-orange-500/10 text-orange-400 rounded-xl flex items-center justify-center font-bold text-xl shrink-0">✉️</div>
-                        <div>
-                            <h3 class="font-bold text-white">Email Us</h3>
-                            <a href="mailto:sangamsharma6265@gmail.com" class="text-slate-300 hover:text-orange-400 transition text-sm md:text-base">sangamsharma6265@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Student Inquiry Form -->
-            <div>
-                <h2 class="text-2xl font-bold text-white mb-6">Student Demo Inquiry</h2>
-                <form action="/contact" method="POST" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-1">Your Name</label>
-                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white focus:ring-2 focus:ring-orange-500 focus:outline-none text-sm" placeholder="Enter parent/student name">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-1">Phone Number</label>
-                        <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white focus:ring-2 focus:ring-orange-500 focus:outline-none text-sm" placeholder="Enter mobile number">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-1">Class / Grade</label>
-                        <input type="text" name="requirement" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white focus:ring-2 focus:ring-orange-500 focus:outline-none text-sm" placeholder="e.g. Class 10th (Maths & Science)">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-1">Message / Requirements</label>
-                        <textarea name="message" rows="3" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white focus:ring-2 focus:ring-orange-500 focus:outline-none text-sm" placeholder="Write your requirements or address details..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-orange-600 text-white font-semibold py-3.5 rounded-xl shadow-lg hover:bg-orange-700 transition">Submit Inquiry</button>
-                </form>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Tutor Registration Form Section -->
-    <section id="tutor-register" class="max-w-4xl mx-auto px-4 pb-20">
-        <div class="bg-slate-900/80 rounded-3xl shadow-xl border border-slate-800 p-8 md:p-12">
-            <div class="text-center mb-8">
-                <span class="bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs md:text-sm font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider inline-block">Join Our Network</span>
-                <h2 class="text-3xl font-bold text-white mt-3">Tutor Registration Form</h2>
-                <p class="text-slate-300 mt-2 text-sm">Are you an expert educator? Register with us to receive home tuition opportunities.</p>
-            </div>
-
-            <form action="/register-tutor" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
-                    <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm" placeholder="Enter your full name">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
-                    <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm" placeholder="Enter your email">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1">Phone Number</label>
-                    <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm" placeholder="Enter your phone number">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1">Subjects You Teach</label>
-                    <input type="text" name="subjects" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm" placeholder="e.g. Maths, Physics (Classes 6-12)">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1">Teaching Experience (Years)</label>
-                    <input type="number" name="experience" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm" placeholder="e.g. 3">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1">Preferred Location / Area</label>
-                    <input type="text" name="location" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm" placeholder="Enter your city/locality">
-                </div>
-                <div class="md:col-span-2 mt-4">
-                    <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3.5 rounded-xl shadow-lg hover:bg-blue-700 transition">Register as Tutor</button>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <!-- Floating WhatsApp & Call Widget -->
-    <div class="fixed right-5 bottom-6 z-50 flex flex-col gap-3">
-        <a href="https://wa.me/919213723510" target="_blank" class="w-12 h-12 md:w-14 md:h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center text-2xl shadow-2xl transition transform hover:scale-110" title="Chat on WhatsApp">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-        <a href="tel:+919213723510" class="w-12 h-12 md:w-14 md:h-14 bg-orange-600 hover:bg-orange-700 text-white rounded-full flex items-center justify-center text-xl shadow-2xl transition transform hover:scale-110" title="Call Us">
-            <i class="fa-solid fa-phone"></i>
-        </a>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Let’s discuss your learning requirements in Delhi NCR</span>
+      <a class="topbar-extra" href="tel:+919213723510">
+        Call us: +91 9213723510
+      </a>
     </div>
+  </div>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 text-slate-300 py-10">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-sm">&copy; 2026 Shree Ram Tuitions. All rights reserved.</p>
-            <div class="flex space-x-6 text-sm">
-                <a href="index.html" class="hover:text-orange-400 transition">Home</a>
-                <a href="about.html" class="hover:text-orange-400 transition">About</a>
-                <a href="services.html" class="hover:text-orange-400 transition">Courses</a>
-                <a href="contact.html" class="hover:text-orange-400 transition">Contact</a>
-            </div>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="/" aria-label="Shree Ram Tuitions home">
+        <img
+          class="brand-mark"
+          src="/favicon.svg"
+          alt=""
+          width="46"
+          height="46"
+        >
+
+        <span>
+          <span class="brand-name">Shree Ram Tuitions</span>
+          <span class="brand-tagline">
+            Personal attention. Meaningful learning.
+          </span>
+        </span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="primary-navigation">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/services.html">Our Services</a></li>
+          <li>
+            <a href="/contact.html" aria-current="page">Contact</a>
+          </li>
+          <li>
+            <a class="btn" href="#tutor-register">
+              Register as a Teacher
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Introduction -->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Contact</span>
+        </nav>
+
+        <span class="eyebrow">We’re here to help</span>
+
+        <h1 id="page-title">
+          Find your teacher.
+          <span class="text-accent">Start your next chapter.</span>
+        </h1>
+
+        <p>
+          Tell us the support you need, or join our network as a teacher.
+          You can use the forms below, call us directly or send a
+          WhatsApp message.
+        </p>
+
+        <div class="button-group" style="margin-top: 28px;">
+          <a class="btn" href="#demo-inquiry">Send a Learning Enquiry</a>
+          <a class="btn btn-secondary" href="#tutor-register">
+            Register as a Teacher
+          </a>
         </div>
-    </footer>
+      </div>
+    </section>
 
+    <!-- Contact information and enquiry -->
+    <section class="section" aria-labelledby="enquiry-title">
+      <div class="container contact-grid">
+        <!-- Contact details -->
+        <aside class="contact-panel" aria-labelledby="contact-info-title">
+          <span class="eyebrow">Speak with us</span>
+          <h2 id="contact-info-title">Let’s Talk</h2>
+
+          <p class="text-muted">
+            Have a question before submitting an enquiry?
+            Contact us through any of these channels.
+          </p>
+
+          <div class="contact-method">
+            <span class="card-icon" aria-hidden="true">📞</span>
+            <div>
+              <h3>Call Us</h3>
+              <a href="tel:+919213723510">+91 9213723510</a>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <span class="card-icon" aria-hidden="true">💬</span>
+            <div>
+              <h3>WhatsApp</h3>
+              <a
+                href="https://wa.me/919213723510?text=Hello%20Shree%20Ram%20Tuitions%2C%20I%20would%20like%20to%20discuss%20my%20learning%20requirements."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Send us a message
+                <span class="sr-only">(opens in a new tab)</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <span class="card-icon" aria-hidden="true">✉</span>
+            <div>
+              <h3>Email</h3>
+              <a href="mailto:sangamsharma6265@gmail.com">
+                sangamsharma6265@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-method">
+            <span class="card-icon" aria-hidden="true">📍</span>
+            <div>
+              <h3>Our Service Area</h3>
+              <p>
+                Delhi NCR, including Dwarka, Tilak Nagar, Janakpuri,
+                Rohini, Noida, Paschim Vihar and Punjabi Bagh.
+              </p>
+            </div>
+          </div>
+
+          <div class="info-banner" style="margin-top: 28px;">
+            <p>
+              <strong>Help us understand your requirements.</strong>
+              Share the service, locality and preferred timings.
+              Teacher availability depends on these details.
+            </p>
+          </div>
+        </aside>
+
+        <!-- Learner enquiry -->
+        <div class="form-panel" id="demo-inquiry">
+          <span class="eyebrow">For learners &amp; parents</span>
+          <h2 id="enquiry-title">Send a Learning Enquiry</h2>
+
+          <p class="form-intro">
+            Tell us what you are looking for. Fields marked
+            <span class="required-mark" aria-hidden="true">*</span>
+            are required.
+          </p>
+
+          <form
+            id="learning-enquiry-form"
+            class="form-grid"
+            action="/contact"
+            method="post"
+          >
+            <div class="form-field">
+              <label for="enquiry-name">
+                Your Name
+                <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="enquiry-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                minlength="2"
+                maxlength="100"
+                placeholder="Parent or learner’s name"
+                required
+              >
+            </div>
+
+            <div class="form-field">
+              <label for="enquiry-phone">
+                Mobile Number
+                <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="enquiry-phone"
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                inputmode="tel"
+                maxlength="20"
+                pattern="(?:[+]91[ \-]?|91[ \-]?|0)?[6-9](?:[ \-]?[0-9]){9}"
+                title="Enter a 10-digit Indian mobile number, optionally with +91."
+                placeholder="Your 10-digit mobile number"
+                required
+              >
+            </div>
+
+            <div class="form-field form-field-full">
+              <label for="enquiry-email">Email Address — Optional</label>
+              <input
+                id="enquiry-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                maxlength="254"
+                placeholder="you@example.com"
+              >
+            </div>
+
+            <div class="form-field">
+              <label for="enquiry-service">
+                Service Required
+                <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+
+              <select id="enquiry-service" name="service" required>
+                <option value="" selected disabled>Select a service</option>
+
+                <optgroup label="School tuition">
+                  <option value="Primary School Tuition">
+                    Primary School Tuition — Classes 1–5
+                  </option>
+                  <option value="Middle School Tuition">
+                    Middle School Tuition — Classes 6–8
+                  </option>
+                  <option value="High School Tuition">
+                    High School Tuition — Classes 9–12
+                  </option>
+                </optgroup>
+
+                <optgroup label="Subject-specific tuition">
+                  <option value="Mathematics">Mathematics</option>
+                  <option value="Science">Science</option>
+                  <option value="English">English</option>
+                  <option value="Computer Science">Computer Science</option>
+                </optgroup>
+
+                <optgroup label="Other learning services">
+                  <option value="Spoken English">Spoken English</option>
+                  <option value="Music Lessons">Music Lessons</option>
+                  <option value="Shadow Teacher Support">
+                    Shadow Teacher Support
+                  </option>
+                  <option value="Other Learning Requirement">
+                    Other Learning Requirement
+                  </option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="enquiry-location">
+                Locality / Sector
+                <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="enquiry-location"
+                name="location"
+                type="text"
+                maxlength="200"
+                placeholder="e.g. Dwarka Sector 12"
+                required
+              >
+            </div>
+
+            <div class="form-field form-field-full">
+              <label for="enquiry-requirement">
+                Class / Learning Requirement
+                <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="enquiry-requirement"
+                name="requirement"
+                type="text"
+                maxlength="200"
+                placeholder="e.g. Class 10 CBSE Maths, or beginner spoken English"
+                aria-describedby="requirement-hint"
+                required
+              >
+              <small class="field-hint" id="requirement-hint">
+                For school tuition, include the class, board and subjects.
+                For other services, describe your learning goal.
+              </small>
+            </div>
+
+            <div class="form-field form-field-full">
+              <label for="enquiry-timings">
+                Preferred Days / Timings — Optional
+              </label>
+              <input
+                id="enquiry-timings"
+                name="preferredTimings"
+                type="text"
+                maxlength="200"
+                placeholder="e.g. Monday, Wednesday and Friday after 5 PM"
+              >
+            </div>
+
+            <div class="form-field form-field-full">
+              <label for="enquiry-message">
+                Additional Details — Optional
+              </label>
+              <textarea
+                id="enquiry-message"
+                name="message"
+                rows="4"
+                maxlength="2000"
+                placeholder="Tell us anything else that would help us understand your requirements."
+                aria-describedby="enquiry-message-hint"
+              ></textarea>
+              <small class="field-hint" id="enquiry-message-hint">
+                Please avoid including sensitive personal records.
+                Further details can be discussed directly.
+              </small>
+            </div>
+
+            <div class="form-field-full">
+              <button class="btn btn-full" type="submit">
+                Submit Learning Enquiry
+                <span aria-hidden="true">→</span>
+              </button>
+
+              <p class="form-note">
+                Submitting this form asks us to contact you about your
+                requirements. Fees, teacher availability and lesson
+                arrangements will be discussed separately.
+              </p>
+            </div>
+
+            <p
+              class="form-status form-field-full"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            ></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teacher registration -->
+    <section
+      class="section section-soft"
+      id="tutor-register"
+      aria-labelledby="teacher-title"
+    >
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Join our teaching network</span>
+          <h2 id="teacher-title">Register as a Teacher</h2>
+          <p>
+            School tutors, spoken English trainers, music teachers and
+            shadow teachers can share their profiles for opportunities
+            across Delhi NCR.
+          </p>
+        </div>
+
+        <div class="form-panel tutor-panel">
+          <h3>Your Teaching Profile</h3>
+          <p class="form-intro">
+            Share your specialisation, experience and preferred locations.
+            Fields marked
+            <span class="required-mark" aria-hidden="true">*</span>
+            are required.
+          </p>
+
+          <form
+            id="teacher-registration-form"
+            class="form-grid"
+            action="/register-tutor"
+            method="post"
+          >
+            <div class="form-field">
+              <label for="teacher-name">
+                Full Name
+                <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="teacher-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                minlength="2"
+                maxlength="100"
+                placeholder="Your full name"
+                required
+              >
+            </div>
+
+            <div class="form-field">
+              <label for="teacher-phone">
+                Mobile Number
+                <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="teacher-phone"
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                inputmode="tel"
+                maxlength="20"
+                pattern="(?:[+]91[ \-]?|91[ \-]?|0)?[6-9](?:[ \-]?[0-9]){9}"
+                title="Enter a 10-digit Indian mobile number, optionally with +91."
+                placeholder="Your 10-digit mobile number"
+                required
+              >
+            </div>
+
+            <div class="form-field">
+              <label for="teacher-email">
+                Email Address
+                <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="teacher-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                maxlength="254"
+                placeholder="you@example.com"
+                required
+              >
+            </div>
+
+            <div class="form-field">
+              <label for="teacher-type">
+                Teacher Category
+                <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <select id="teacher-type" name="teacherType" required>
+                <option value="" selected disabled>Select your category</option>
+                <option value="School Tutor">School Tutor</option>
+                <option value="Spoken English Trainer">
+                  Spoken English Trainer
+                </option>
+                <option value="Music Teacher">Music Teacher</option>
+                <option value="Shadow Teacher">Shadow Teacher</option>
+                <option value="Multiple Specialisations">
+                  Multiple Specialisations
+                </option>
+              </select>
+            </div>
+
+            <div class="form-field form-field-full">
+              <label for="teacher-subjects">
+                Subjects / Specialisation
+                <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="teacher-subjects"
+                name="subjects"
+                type="text"
+                maxlength="200"
+                placeholder="Your subjects, teaching levels or specialisation"
+                required
+              >
+            </div>
+
+            <div class="form-field">
+              <label for="teacher-experience">
+                Teaching Experience — Years
+                <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="teacher-experience"
+                name="experience"
+                type="number"
+                min="0"
+                max="80"
+                step="0.5"
+                placeholder="e.g. 3"
+                aria-describedby="experience-hint"
+                required
+              >
+              <small class="field-hint" id="experience-hint">
+                Enter 0 if you are starting out. Half-year values are accepted.
+              </small>
+            </div>
+
+            <div class="form-field">
+              <label for="teacher-qualification">
+                Qualifications — Optional
+              </label>
+              <input
+                id="teacher-qualification"
+                name="qualification"
+                type="text"
+                maxlength="200"
+                placeholder="Relevant education or training"
+              >
+            </div>
+
+            <div class="form-field form-field-full">
+              <label for="teacher-location">
+                Preferred Teaching Localities
+                <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="teacher-location"
+                name="location"
+                type="text"
+                maxlength="200"
+                placeholder="e.g. Dwarka, Janakpuri, Tilak Nagar"
+                required
+              >
+            </div>
+
+            <div class="form-field form-field-full">
+              <label for="teacher-timings">
+                Availability — Optional
+              </label>
+              <input
+                id="teacher-timings"
+                name="preferredTimings"
+                type="text"
+                maxlength="200"
+                placeholder="e.g. Weekday evenings and Saturday mornings"
+              >
+            </div>
+
+            <div class="form-field form-field-full">
+              <label for="teacher-message">
+                About Your Teaching — Optional
+              </label>
+              <textarea
+                id="teacher-message"
+                name="message"
+                rows="4"
+                maxlength="2000"
+                placeholder="Briefly describe your teaching experience, approach or the learners you support."
+              ></textarea>
+            </div>
+
+            <div class="form-field-full">
+              <button class="btn btn-dark btn-full" type="submit">
+                Submit Teacher Registration
+                <span aria-hidden="true">→</span>
+              </button>
+
+              <p class="form-note">
+                Registration allows us to review your profile.
+                Teaching opportunities depend on relevant learner
+                requirements and availability.
+              </p>
+            </div>
+
+            <p
+              class="form-status form-field-full"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            ></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Useful information -->
+    <section class="section" aria-labelledby="contact-faq-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Before you enquire</span>
+          <h2 id="contact-faq-title">A Few Useful Answers</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Do you cover my area in Delhi NCR?</summary>
+            <div class="faq-answer">
+              <p>
+                We cover Delhi NCR, with a particular focus on Dwarka,
+                Tilak Nagar, Janakpuri, Rohini, Noida, Paschim Vihar and
+                Punjabi Bagh. Send your locality and requirements so
+                we can discuss teacher availability.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What happens after I submit an enquiry?</summary>
+            <div class="faq-answer">
+              <p>
+                Your requirements are recorded for review. We will
+                contact you to discuss suitable options, availability
+                and further details using the contact information
+                you provide.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I enquire about multiple services?</summary>
+            <div class="faq-answer">
+              <p>
+                Yes. Select your main service and mention additional
+                services in the details field so we can discuss
+                each requirement.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What if the online form is unavailable?</summary>
+            <div class="faq-answer">
+              <p>
+                Call
+                <a href="tel:+919213723510">+91 9213723510</a>
+                or message us on WhatsApp. If a submission was interrupted
+                and you did not receive confirmation, contact us before
+                sending it again.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="/" aria-label="Shree Ram Tuitions home">
+            <img
+              class="brand-mark"
+              src="/favicon.svg"
+              alt=""
+              width="46"
+              height="46"
+              loading="lazy"
+            >
+            <span>
+              <span class="brand-name">Shree Ram Tuitions</span>
+              <span class="brand-tagline">
+                Personal attention. Meaningful learning.
+              </span>
+            </span>
+          </a>
+
+          <p class="footer-description">
+            Home tuition, spoken English, music lessons and shadow
+            teacher support across Delhi NCR.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-heading">Explore</h2>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/services.html">Our Services</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+            <li><a href="/#faqs">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-heading">Learning Services</h2>
+          <ul class="footer-links">
+            <li>
+              <a href="/services.html#school-tuition">School Home Tuition</a>
+            </li>
+            <li>
+              <a href="/services.html#spoken-english">Spoken English</a>
+            </li>
+            <li>
+              <a href="/services.html#music-lessons">Music Lessons</a>
+            </li>
+            <li>
+              <a href="/services.html#shadow-teacher">Shadow Teacher Support</a>
+            </li>
+            <li><a href="#tutor-register">Teacher Registration</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-heading">Get in Touch</h2>
+          <ul class="footer-links">
+            <li>
+              <a href="tel:+919213723510">+91 9213723510</a>
+            </li>
+            <li>
+              <a href="mailto:sangamsharma6265@gmail.com">
+                sangamsharma6265@gmail.com
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/919213723510"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Message us on WhatsApp
+                <span class="sr-only">(opens in a new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a href="/about.html#areas-we-cover">Areas We Cover</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="copyright-year">2026</span>
+          Shree Ram Tuitions. All rights reserved.
+        </p>
+        <p>Serving learners and families across Delhi NCR.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating contact buttons -->
+  <div class="floating-contact" aria-label="Quick contact">
+    <a
+      class="floating-button floating-whatsapp"
+      href="https://wa.me/919213723510?text=Hello%20Shree%20Ram%20Tuitions%2C%20I%20would%20like%20to%20make%20an%20enquiry."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp (opens in a new tab)"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.52 3.48A11.9 11.9 0 0 0 12.04 0C5.45 0 .09 5.36.09 11.95c0 2.11.55 4.17 1.6 5.99L0 24l6.24-1.64a11.94 11.94 0 0 0 5.8 1.48h.01C18.64 23.84 24 18.48 24 11.89c0-3.19-1.24-6.17-3.48-8.41ZM12.05 21.82a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.7.97.99-3.61-.24-.37a9.85 9.85 0 0 1-1.51-5.27c0-5.47 4.45-9.92 9.93-9.92a9.85 9.85 0 0 1 7.02 2.91 9.86 9.86 0 0 1 2.9 7.02c0 5.48-4.45 9.93-9.98 9.86Zm5.44-7.43c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"></path>
+      </svg>
+    </a>
+
+    <a
+      class="floating-button floating-call"
+      href="tel:+919213723510"
+      aria-label="Call Shree Ram Tuitions"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.79a2 2 0 0 1-.45 2.11L8.09 9.89a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.34 1.83.58 2.79.7A2 2 0 0 1 22 16.92Z"></path>
+      </svg>
+    </a>
+  </div>
 </body>
 </html>
